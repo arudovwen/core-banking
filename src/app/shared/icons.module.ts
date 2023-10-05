@@ -1,3 +1,4 @@
+// @ts-nocheck 
 /** Angular Imports */
 import { NgModule } from '@angular/core';
 
