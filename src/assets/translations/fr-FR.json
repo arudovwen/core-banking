@@ -1,0 +1,131 @@
+{
+  "APP_NAME": "Mifos X",
+  "Logged in as": "Connecté en tant que",
+  "Remember me": "Souvenez-vous de moi",
+  "not_found_subtitle": "Oups.. On dirait que cette page n’existe pas.",
+  "languages": {
+    "en-US": "Anglais",
+    "fr-FR": "Français",
+    "es-MX": "Espagnol"
+  },
+  "labels": {
+    "breadcrumbs": {
+      "Home": "Domicile"
+    },
+    "buttons": {
+      "Dashboard": "Tableau de bord",
+      "Add": "Ajouter",
+      "Back": "Précédent",
+      "Close": "Fermer",
+      "Next": "Prochain",
+      "Login": "Connectez-vous",
+      "Create User": "Créer un utilisateur"
+    },
+    "commons": {
+      "is required": "est obligatoire"
+    },
+    "inputs":{
+      "Tenant": "Locataire",
+      "Language": "Langue",
+      "Server": "Serveur",
+      "Url": "URL",
+      "Login": "Connectez-vous",
+      "Logout": "Se déconnecter",
+      "Username": "Nom d'utilisateur",
+      "Password": "Mot de passe",
+      "Remember me": "Souvenez-vous de moi",
+      "Filter": "Filtre",
+      "products": {
+        "loan": {
+          "Amortization": "Amortissement",
+          "amortizationType": {
+            "Equal installments": "Versements égaux",
+            "Equal principal payments": "Paiements de principal égaux"
+          },
+          "Is Equal Amortization?": "'est-ce qu'un amortissement égal ?"
+        }
+      }
+    },
+    "links": {
+      "Contribute": "Contribuer",
+      "Resources": "Ressources",
+      "Community": "Communauté",
+      "User Manual": "Manuel de l'Utilisateur",
+      "Functional Specifications": "Spécifications fonctionnelles",
+      "Developer Zone": "Espace développeur",
+      "User Group": "Groupe d'utilisateurs",
+      "Developer Group": "Groupe de développeurs",
+      "IRC": "CRI",
+      "Key Design Principles": "Principes de conception clés",
+      "Working with Code": "Travailler avec du code",
+      "Donate": "Donner",
+      "Forgot Password?": "Mot de passe oublié?"
+    },
+    "menus": {
+      "Institution": "Institution",
+      "Accounting": "Comptabilité",
+      "Breadcrumbs": "Chapelure",
+      "Reports": "Rapports",
+      "Admin": "Administrateur",
+      "Self Service": "En libre service",
+      "Configuration Wizard": "Assistant de configuration",
+      "Clients": "Clients",
+      "Groups": "Groupes",
+      "Centers": "Centres",
+      "All": "Tous",
+      "Loans": "Prêts",
+      "Savings": "Des économies",
+      "Funds": "Fonds",
+      "XBRL": "XBRL",
+      "Users": "Utilisateurs",
+      "Organization": "Organisation",
+      "System": "Système",
+      "Products": "Des produits",
+      "Templates": "Modèles",
+      "User Management": "Gestion des utilisateurs",
+      "App Configuration": "Configuration de l'application",
+      "Task Management": "Gestion des tâches",
+      "Help": "Aider",
+      "Profile": "Profil",
+      "Settings": "Paramètres",
+      "Sign Out": "Se déconnecter",
+      "Global Search": "Recherche globale",
+      "Language Selector": "Sélecteur de langue",
+      "Theme Picker": "Sélecteur de thème",
+      "Application Menu": "Menu des applications",
+      "User Panel": "Panneau d'utilisateur",
+      "Frequently Accessed": "Fréquemment consulté",
+      "Dashboard": "Tableau de bord",
+      "Navigation": "La navigation",
+      "Frequent Postings": "Publications fréquentes",
+      "Create Journal Entry": "Créer une entrée de journal",
+      "Chart of Accounts": "Plan comptable",
+      "Notifications": "Avis",
+      "Main Items": "Éléments principaux",
+      "Checker Inbox and Tasks": "Boîte de réception et tâches du vérificateur",
+      "Individual Collection Sheet": "Feuille de collecte individuelle",
+      "Keyboard Shortcuts": "Raccourcis clavier"
+    },
+    "placeholders": {
+      "Add new server": "Ajouter un nouveau serveur",
+      "Search Activity": "Activité de recherche"
+    },
+    "texts": {
+      "Welcome": "Accueillir",
+      "Version": "Version",
+      "by": "par",
+      "Login into Tenant": "Connectez-vous au locataire"
+    }
+  },
+  "errors": {
+    "inputs": {
+      "Password is required": "Mot de passe requis",
+      "Username is required": "Nom d'utilisateur est nécessaire",
+      "Username or password incorrect.": "Nom d'utilisateur ou mot de passe incorrect"
+    }
+  },
+  "tooltips": {
+    "Settings": "Paramètres",
+    "Sign Out": "Se déconnecter"
+  }
+}
