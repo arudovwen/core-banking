@@ -1,36 +1,49 @@
 <form fxLayout="column" [formGroup]="loginForm" (ngSubmit)="login()" id="login-form">
-  <mat-form-field fxFlexAlign="center" class="login-input inputBorder">
-    <mat-label>{{ "labels.inputs.Username" | translate }}</mat-label>
-    <input matInput type="text" autocomplete="off" formControlName="username" />
-    <mat-error *ngIf="loginForm.controls.username.hasError('required')">
-      {{ "labels.inputs.Username" | translate }} <strong>{{ "labels.commons.is required" | translate }}</strong>
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field fxFlexAlign="center" class="login-input">
-    <mat-label>{{ "labels.inputs.Password" | translate }}</mat-label>
-    <input matInput type="{{ passwordInputType }}" formControlName="password" />
-    <button
-      mat-button
-      *ngIf="loginForm.controls.password.value && !loading"
-      matSuffix
-      mat-icon-button
-      (mousedown)="passwordInputType = 'text'"
-      (mouseup)="passwordInputType = 'password'"
+  <div class="login-text" fxLayout="column" fxLayoutGap="15px">
+    <h1 class="title">Welcome Back</h1>
+    <span class="description"
+      >We're eliminating the friction and bias of traditional financing, connecting business builders to capital at the
+      click of a button.</span
     >
-      <fa-icon *ngIf="passwordInputType === 'password'" icon="eye"></fa-icon>
-      <fa-icon *ngIf="passwordInputType === 'text'" icon="eye-slash"></fa-icon>
-    </button>
-    <mat-error *ngIf="loginForm.controls.password.hasError('required')">
-      {{ "labels.inputs.Password" | translate }} <strong>{{ "labels.commons.is required" | translate }}</strong>
-    </mat-error>
-  </mat-form-field>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="2px">
+    <mat-label>{{ "labels.inputs.Username" | translate }}</mat-label>
+
+    <mat-form-field appearance="outline" fxFlexAlign="center" class="login-input inputBorder">
+      <input matInput type="text" autocomplete="off" formControlName="username" />
+      <mat-error *ngIf="loginForm.controls.username.hasError('required')">
+        {{ "labels.inputs.Username" | translate }} <strong>{{ "labels.commons.is required" | translate }}</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="column" fxLayoutGap="2px">
+    <mat-label>{{ "labels.inputs.Password" | translate }}</mat-label>
+    <mat-form-field appearance="outline" fxFlexAlign="center" class="login-input">
+      <input matInput type="{{ passwordInputType }}" formControlName="password" />
+      <button
+        mat-button
+        *ngIf="loginForm.controls.password.value && !loading"
+        matSuffix
+        mat-icon-button
+        (mousedown)="passwordInputType = 'text'"
+        (mouseup)="passwordInputType = 'password'"
+      >
+        <fa-icon *ngIf="passwordInputType === 'password'" icon="eye"></fa-icon>
+        <fa-icon *ngIf="passwordInputType === 'text'" icon="eye-slash"></fa-icon>
+      </button>
+      <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+        {{ "labels.inputs.Password" | translate }} <strong>{{ "labels.commons.is required" | translate }}</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
 
   <mat-checkbox fxFlexAlign="center" formControlName="remember" class="m-t-10">{{
     "labels.inputs.Remember me" | translate
   }}</mat-checkbox>
 
-  <button mat-raised-button color="primary" fxFlexAlign="center" class="login-button" [disabled]="!loginForm.valid">
+  <button mat-flat-button color="primary" fxFlexAlign="center" class="login-button" [disabled]="!loginForm.valid">
     {{ "labels.buttons.Login" | translate }}
     <mat-spinner [diameter]="20" *ngIf="loading"></mat-spinner>
   </button>

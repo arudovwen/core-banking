@@ -1,12 +1,12 @@
 $primary-palette: (
-  100: #5ba2ec,
-  500: #1074b9,
-  700: #004989,
+  100: #9fe870,
+  500: #9fe870,
+  700: #9fe870,
   contrast: (
-    100: rgba(black, 0.87),
-    500: white,
-    700: white
-  )
+    100: rgba(22, 51, 0, 1),
+    500: rgba(22, 51, 0, 1),
+    700: rgba(22, 51, 0, 1),
+  ),
 );
 
 $accent-palette: (
@@ -16,6 +16,6 @@ $accent-palette: (
   contrast: (
     100: rgba(black, 0.87),
     500: rgba(black, 0.87),
-    700: rgba(black, 0.87)
-  )
+    700: rgba(black, 0.87),
+  ),
 );
