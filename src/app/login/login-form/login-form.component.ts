@@ -1,23 +1,22 @@
 /** Angular Imports */
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from "@angular/forms";
 
 /** rxjs Imports */
-import { finalize } from 'rxjs/operators';
+import { finalize } from "rxjs/operators";
 
 /** Custom Services */
-import { AuthenticationService } from '../../core/authentication/authentication.service';
+import { AuthenticationService } from "../../core/authentication/authentication.service";
 
 /**
  * Login form component.
  */
 @Component({
-  selector: 'mifosx-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  selector: "mifosx-login-form",
+  templateUrl: "./login-form.component.html",
+  styleUrls: ["./login-form.component.scss"],
 })
 export class LoginFormComponent implements OnInit {
-
   /** Login form group. */
   loginForm: UntypedFormGroup;
   /** Password input field type. */
@@ -29,8 +28,10 @@ export class LoginFormComponent implements OnInit {
    * @param {FormBuilder} formBuilder Form Builder.
    * @param {AuthenticationService} authenticationService Authentication Service.
    */
-  constructor(private formBuilder: UntypedFormBuilder,
-              private authenticationService: AuthenticationService) {  }
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private authenticationService: AuthenticationService,
+  ) {}
 
   /**
    * Creates login form.
@@ -39,7 +40,7 @@ export class LoginFormComponent implements OnInit {
    */
   ngOnInit() {
     this.createLoginForm();
-    this.passwordInputType = 'password';
+    this.passwordInputType = "password";
   }
 
   /**
@@ -48,21 +49,25 @@ export class LoginFormComponent implements OnInit {
   login() {
     this.loading = true;
     this.loginForm.disable();
-    this.authenticationService.login(this.loginForm.value)
-      .pipe(finalize(() => {
-        this.loginForm.reset();
-        this.loginForm.markAsPristine();
-        // Angular Material Bug: Validation errors won't get removed on reset.
-        this.loginForm.enable();
-        this.loading = false;
-      })).subscribe();
+    this.authenticationService
+      .login(this.loginForm.value)
+      .pipe(
+        finalize(() => {
+          this.loginForm.reset();
+          this.loginForm.markAsPristine();
+          // Angular Material Bug: Validation errors won't get removed on reset.
+          this.loginForm.enable();
+          this.loading = false;
+        }),
+      )
+      .subscribe();
   }
 
   /**
    * TODO: Decision to be taken on providing this feature.
    */
   forgotPassword() {
-    console.log('Forgot Password feature currently unavailable.');
+    console.log("Forgot Password feature currently unavailable.");
   }
 
   /**
@@ -70,10 +75,9 @@ export class LoginFormComponent implements OnInit {
    */
   private createLoginForm() {
     this.loginForm = this.formBuilder.group({
-      'username': ['', Validators.required],
-      'password': ['', Validators.required],
-      'remember': false
+      username: ["", Validators.required],
+      password: ["", Validators.required],
+      remember: false,
     });
   }
-
 }

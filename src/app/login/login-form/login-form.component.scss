@@ -6,14 +6,38 @@
     width: 462px;
     margin-bottom: 0.6rem;
   }
+  .login-text {
+    width: 462px;
+    margin-bottom: 27px;
+    margin-top: 142px;
+  }
 
   .login-button {
     width: 462px;
     margin-top: 1rem;
+    height: 48px;
+    border-radius: 32px;
   }
 
   mat-spinner {
     float: right;
     margin: 0.5rem 0;
+  }
+
+  .title {
+    color: var(--content-primary, #0e0f0c);
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 24px */
+  }
+  .description {
+    color: var(--content-secondary, #454745);
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 19.5px */
   }
 }
