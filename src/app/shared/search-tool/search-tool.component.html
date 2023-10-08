@@ -1,23 +1,40 @@
-<div *ngIf="searchVisible" class="search-bar" fxFlex="auto" fxHide.lt-sm="true" fxLayout="row" fxLayoutGap="2%" [@fadeInOut]>
+<div
+  *ngIf="searchVisible"
+  class="search-bar"
+  fxFlex="auto"
+  fxHide.lt-sm="true"
+  fxLayout="row"
+  fxLayoutGap="2%"
+  [@fadeInOut]
+>
+  <div class="search" appearance="">
+    <span matPrefix> <fa-icon icon="search" class="text-grey-2" size="md"></fa-icon>&nbsp;&nbsp; </span>
+    <input
+      matInput
+      type="text"
+      [formControl]="query"
+      class="text-grey-3 p-l-2"
+      placeholder="Search"
+      (keydown.enter)="search()"
+    />
+    <mat-select class="search-select" matSuffix [formControl]="resource">
+      <mat-option *ngFor="let option of resourceOptions" [value]="option.value">
+        {{ option.name }}
+      </mat-option>
+    </mat-select>
+  </div>
 
-  <mat-form-field class="search">
-    <mat-label>Search</mat-label>
-    <input matInput type="text" [formControl]="query" (keydown.enter)="search()">
-  </mat-form-field>
-
-  <mat-form-field class="resource">
-    <mat-label>Resource</mat-label>
+  <!-- <mat-form-field class="resource" appearance="">
     <mat-select [formControl]="resource">
       <mat-option *ngFor="let option of resourceOptions" [value]="option.value">
         {{ option.name }}
       </mat-option>
     </mat-select>
-  </mat-form-field>
-
+  </mat-form-field> -->
 </div>
 
-<div class="search-icon">
+<!-- <div class="search-icon">
   <button mat-icon-button (click)="toggleSearchVisibility()" fxHide.lt-sm="true">
     <fa-icon icon="search" size="lg" matTooltip="Search"></fa-icon>
   </button>
-</div>
+</div> -->

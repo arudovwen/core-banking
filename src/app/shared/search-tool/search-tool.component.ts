@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { style, animate, transition, trigger } from '@angular/animations';
 import { Router } from '@angular/router';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 /**
  * Search Tool Component
@@ -26,12 +26,12 @@ import { UntypedFormControl } from '@angular/forms';
 export class SearchToolComponent {
 
   /** Query Form Control */
-  query = new UntypedFormControl('');
+  query = new FormControl('');
   /** Resource Form Control */
-  resource = new UntypedFormControl('');
+  resource = new FormControl('');
 
   /** Sets the initial visibility of search input as hidden. Visible if true. */
-  searchVisible = false;
+  searchVisible = true;
   /** Resource Options */
   resourceOptions: any[] = [
     {
