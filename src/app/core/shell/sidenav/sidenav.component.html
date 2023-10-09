@@ -1,200 +1,388 @@
-<div [ngClass]="{
-  'sidebar-full': !sidenavCollapsed,
-  'sidebar-compact': sidenavCollapsed
-  }">
-
-  <div class="navigation-panel" fxLayout="column">
-
+<div
+  [ngClass]="{
+    'sidebar-full': !sidenavCollapsed,
+    'sidebar-compact': sidenavCollapsed
+  }"
+>
+  <div class="navigation-panel flex flex-column justify-between overflow-y-auto" fxLayout="column">
     <!-- TODO: Allow customization by organization -->
-    <div class="app-brand" [routerLink]="['/home']">
-      <img src="assets/images/MifosX_logo.png" alt="app-logo" class="app-logo">
-      <span #logo class="app-logo-text text-muted">{{ 'APP_NAME' | translate }}</span>
+    <div>
+      <div
+        class="app-brand"
+        [routerLink]="['/home']"
+        [ngClass]="{
+          'pl-4': !sidenavCollapsed,
+          'pl-0': sidenavCollapsed
+        }"
+      >
+        <img
+          [ngClass]="{
+            hide: !sidenavCollapsed,
+            show: sidenavCollapsed
+          }"
+          src="assets/images/icon.png"
+          alt="app-logo"
+          class="app-logo"
+        />
+        <img
+          [ngClass]="{
+            show: !sidenavCollapsed,
+            hide: sidenavCollapsed
+          }"
+          src="assets/images/logo.svg"
+          alt="app-logo"
+          class="app-logo"
+        />
+      </div>
+
+      <div class="app-sidenav px-5">
+        <mat-nav-list>
+          <mat-list-item [routerLink]="['/home']" [routerLinkActive]="'is-active '" matTooltip="Home">
+            <div class="flex items-center gap-x-[10px]">
+              <app-home-svg matListItemIcon></app-home-svg>
+
+              <a matListItemLine class="f14" #home>{{ "labels.breadcrumbs.Home" | translate }}</a>
+            </div>
+          </mat-list-item>
+          <mat-list-item [routerLink]="['/dashboard']" [routerLinkActive]="'is-active'" matTooltip="Dashboard">
+            <div class="flex items-center gap-x-[10px]">
+              <app-dashboard-svg></app-dashboard-svg>
+
+              <a matLine class="f14" #dashboard>{{ "labels.menus.Dashboard" | translate }}</a>
+            </div>
+          </mat-list-item>
+          <mat-list-item [routerLink]="['/groups']" [routerLinkActive]="'is-active'" matTooltip="Groups">
+            <div class="flex items-center gap-x-[10px]">
+              <app-groups-svg></app-groups-svg>
+
+              <a matLine class="f14" #groups>{{ "labels.menus.Groups" | translate }}</a>
+            </div>
+          </mat-list-item>
+          <mat-list-item [routerLink]="['/centers']" [routerLinkActive]="'is-active'" matTooltip="Centers">
+            <div class="flex items-center gap-x-[10px]">
+              <app-center-svg></app-center-svg>
+
+              <a matLine class="f14" #centers>{{ "labels.menus.Centers" | translate }}</a>
+            </div>
+          </mat-list-item>
+
+          <mat-list-item [routerLink]="['/clients']" [routerLinkActive]="'is-active'" matTooltip="Clients">
+            <div class="flex items-center gap-x-[10px]">
+              <app-client-svg></app-client-svg>
+
+              <a matLine class="f14" #clients>{{ "labels.menus.Clients" | translate }}</a>
+            </div>
+          </mat-list-item>
+          <mat-list-item [routerLink]="['/accounting']" [routerLinkActive]="'is-active'" matTooltip="Accounting">
+            <div class="flex items-center gap-x-[10px]">
+              <app-accounting-svg></app-accounting-svg>
+
+              <a matLine class="f14" #accounting>{{ "labels.menus.Accounting" | translate }}</a>
+            </div>
+          </mat-list-item>
+
+          <div
+            class="p-h-8"
+            [ngClass]="{
+              hide: sidenavCollapsed
+            }"
+          >
+            <mat-accordion>
+              <mat-expansion-panel
+                (opened)="reportsOpenState = true"
+                (closed)="reportsOpenState = false"
+                [ngClass]="{
+                  transparent: !reportsOpenState
+                }"
+              >
+                <mat-expansion-panel-header class="p-h-15">
+                  <mat-panel-title>
+                    <div class="flex items-center gap-x-[10px]">
+                      <app-report-svg (click)="sidenavCollapsed = false"></app-report-svg>
+
+                      <span
+                        [ngClass]="{
+                          hide: sidenavCollapsed
+                        }"
+                        class="f14"
+                      >
+                        {{ "labels.menus.Reports" | translate }}</span
+                      >
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="border-l"> 
+                <div
+                  [routerLink]="['/reports']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.All" | translate }}</span>
+                </div>
+               
+                <div
+                  [routerLink]="['/reports', 'Client']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Clients" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/reports', 'Loan']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Loans" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/reports', 'Savings']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Savings" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/reports', 'Fund']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Funds" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/reports', 'Accounting']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Accounting" | translate }}</span>
+                </div>
+                <div [routerLink]="['/xbrl']" class="f14 text-gray-800 relative h-[43px] flex items-end">
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.XBRL" | translate }}</span>
+                </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <mat-list-item [routerLink]="['/settings']" [routerLinkActive]="'is-active'" matTooltip="Settings">
+            <div class="flex items-center gap-x-[10px]">
+              <app-settings-svg></app-settings-svg>
+
+              <a matLine class="f14" #settings>{{ "labels.menus.Settings" | translate }}</a>
+            </div>
+          </mat-list-item>
+
+          <div
+            class="p-h-8"
+            [ngClass]="{
+              hide: sidenavCollapsed
+            }"
+          >
+            <mat-accordion>
+              <mat-expansion-panel
+                (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+                [ngClass]="{
+                  transparent: !panelOpenState
+                }"
+              >
+                <mat-expansion-panel-header class="p-h-15">
+                  <mat-panel-title>
+                    <div class="flex items-center gap-x-[10px]">
+                      <app-admin-svg (click)="sidenavCollapsed = false"></app-admin-svg>
+
+                      <span
+                        [ngClass]="{
+                          hide: sidenavCollapsed
+                        }"
+                        class="f14"
+                      >
+                        {{ "labels.menus.Admin" | translate }}</span
+                      >
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="border-l"> 
+                <div
+                  [routerLink]="['/users']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Users" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/organization']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Organization" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/system']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.System" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/products']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Products" | translate }}</span>
+                </div>
+                <div
+                  [routerLink]="['/templates']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Templates" | translate }}</span>
+                </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+          <div
+            class="p-h-8"
+            [ngClass]="{
+              hide: sidenavCollapsed
+            }"
+          >
+            <mat-accordion>
+              <mat-expansion-panel
+                (opened)="selfOpenState = true"
+                (closed)="selfOpenState = false"
+                [ngClass]="{
+                  transparent: !selfOpenState
+                }"
+              >
+                <mat-expansion-panel-header class="p-h-15">
+                  <mat-panel-title>
+                    <div class="flex items-center gap-x-[10px]">
+                      <app-self-service-svg (click)="sidenavCollapsed = false"></app-self-service-svg>
+
+                      <span
+                        [ngClass]="{
+                          hide: sidenavCollapsed
+                        }"
+                        class="f14"
+                      >
+                        {{ "labels.menus.Self Service" | translate }}</span
+                      >
+                    </div>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div class="border-l"> 
+                  <div
+                    [routerLink]="['/self-service/users']"
+                    [routerLinkActive]="'is-active'"
+                    matTooltip="User Management"
+                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.User Management" | translate }}</span>
+                  </div>
+                  <div
+                    [routerLink]="['/self-service/app-configuration']"
+                    [routerLinkActive]="'is-active'"
+                    matTooltip="App Configuration"
+                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.App Configuration" | translate }}</span>
+                  </div>
+                  <div
+                    [routerLink]="['/self-service/task-management']"
+                    [routerLinkActive]="'is-active'"
+                    matTooltip="Task Management"
+                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Task Management" | translate }}</span>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
+        </mat-nav-list>
+      </div>
     </div>
 
-    <div class="app-user">
-      <div class="app-user-photo">
-        <!-- TODO: Decision to be taken on providing this feature -->
-        <img src="assets/images/user_placeholder.png" alt="app-user-photo">
-      </div>
-      <span class="app-user-name mb-05">
-        {{ tenantIdentifier }} / {{ username }}
-      </span>
-      <div #userPanel class="app-user-controls">
-        <button class="xs-button" mat-icon-button matTooltip="{{ 'tooltips.Settings' | translate }}" [routerLink]="['/settings']">
-          <fa-icon icon="cog"></fa-icon>
-        </button>
-        <button class="xs-button" mat-icon-button matTooltip="{{ 'tooltips.Sign Out' | translate }}" (click)="logout()">
-          <fa-icon icon="sign-out-alt"></fa-icon>
-        </button>
-      </div>
-    </div>
-
-    <div class="app-sidenav">
-
-      <div #frequentlyAccessed>
-      <div class="mt-1 mb-1 nav-item-sep">
-        <mat-divider></mat-divider>
-        <span class="text-muted icon-menu-title">{{ 'labels.menus.Frequently Accessed' | translate }}</span>
-      </div>
-      </div>
-      <div class="icon-menu">
-        <div class="icon-menu-item" *ngFor="let activity of mappedActivities">
-          <button mat-raised-button [matTooltip]="activity.toolTip" [routerLink]="[activity.path]">
-            <fa-icon [icon]="activity.icon" size="lg"></fa-icon>
-          </button>
+    <div class="bg-[#EDEFEB] w-[90%] px-[10px] py-[14px] rounded-lg mx-auto mb-8 flex justify-center items-center">
+      <!-- <i
+        [ngClass]="{
+          hide: !sidenavCollapsed,
+          show: sidenavCollapsed
+        }"
+        class="fa fa-user-circle f28 text-grey-3 app-avatar text-4xl"
+        aria-hidden="true"
+      ></i> -->
+      <img
+        [ngClass]="{
+          hide: !sidenavCollapsed,
+          show: sidenavCollapsed
+        }"
+        src="assets/images/av.svg"
+        class="rounded-full h-[30px] w-[30px]"
+        alt="Admin"
+        width="30"
+        height="30"
+      />
+      <div
+        class="items-center gap-x-4"
+        [ngClass]="{
+          flex: !sidenavCollapsed,
+          hide: sidenavCollapsed
+        }"
+      >
+        <!-- <i class="fa fa-user-circle text-[30px] text-gray-400 app-avatar" aria-hidden="true"></i> -->
+        <img src="assets/images/av.svg" class="rounded-full h-[30px] w-[30px]" alt="Admin" width="30" height="30" />
+        <div class="text">
+          <p class="text-xs text-[#0E0F0C] capitalize font-semibold">{{ username }}</p>
+          <p class="text-[10px] text-[#6A6C6A]">{{ officeName }}</p>
         </div>
       </div>
-
-      <div class="nav-item-sep">
-        <mat-divider></mat-divider>
-        <span class="text-muted">{{ 'labels.menus.Main Items' | translate }}</span>
-      </div>
-
-      <mat-nav-list>
-        <mat-list-item [routerLink]="['/dashboard']" matTooltip="{{ 'tooltips.Dashboard' | translate }}">
-          <mat-icon matListIcon >
-            <fa-icon icon="tachometer-alt" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine #dashboard>{{ 'labels.menus.Dashboard' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['/navigation']" matTooltip="{{ 'tooltips.Navigation' | translate }}">
-          <mat-icon matListIcon>
-            <fa-icon icon="location-arrow" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine #navigation>{{ 'labels.menus.Navigation' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['/checker-inbox-and-tasks/checker-inbox']" matTooltip="{{ 'tooltips.Checker Inbox and Tasks' | translate }}">
-          <mat-icon matListIcon>
-            <i class="fa fa-check" ></i>
-          </mat-icon>
-          <a matLine>{{ 'labels.menus.Checker Inbox and Tasks' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['/collections/individual-collection-sheet']" matTooltip="{{ 'tooltips.Individual Collection Sheet' | translate }}">
-          <mat-icon matListIcon>
-            <i class="fa fa-tasks "></i>
-          </mat-icon>
-          <a matLine>{{ 'labels.menus.Individual Collection Sheet' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['/notifications']" matTooltip="{{ 'tooltips.Notifications' | translate }}">
-          <mat-icon matListIcon>
-            <fa-icon icon="bell" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine>{{ 'labels.menus.Notifications' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['/accounting/journal-entries/frequent-postings']" matTooltip="{{ 'tooltips.Frequent Postings' | translate }}">
-          <mat-icon matListIcon>
-            <fa-icon icon="sync" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine #frequentPostings>{{ 'labels.menus.Frequent Postings' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['/accounting/journal-entries/create']" matTooltip="{{ 'tooltips.Create Journal Entry' | translate }}">
-          <mat-icon matListIcon>
-            <fa-icon icon="plus" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine #createJournalEntry>{{ 'labels.menus.Create Journal Entry' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item [routerLink]="['/accounting/chart-of-accounts']" matTooltip="{{ 'tooltips.Chart Of Accounts' | translate }}">
-          <mat-icon matListIcon>
-            <fa-icon icon="sitemap" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine #chartOfAccounts>{{ 'labels.menus.Chart of Accounts' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item (click)="showKeyboardShortcuts()" matTooltip="{{ 'tooltips.Keyboard Shortcuts' | translate }}">
-          <mat-icon matListIcon>
-            <fa-icon icon="keyboard" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine>{{ 'labels.menus.Keyboard Shortcuts' | translate }}</a>
-        </mat-list-item>
-        <mat-list-item matTooltip="{{ 'tooltips.Help' | translate }}">
-          <mat-icon matListIcon (click)="help()">
-            <fa-icon icon="question-circle" size="sm"></fa-icon>
-          </mat-icon>
-          <a matLine>{{ 'labels.menus.Help' | translate }}</a>
-        </mat-list-item>
-      </mat-nav-list>
-
     </div>
-
   </div>
-
 </div>
-
-
-<ng-template #templateLogo let-popover="popover">
-  <p class="mw300">{{"labels.text.Welcome page logo from anywhere" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();previousStep()">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateUserPanel,userPanel,'bottom', true);">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
-
-<ng-template #templateUserPanel let-popover="popover">
-  <h2>{{ 'labels.menus.User Panel' | translate }}</h2>
-  <p class="mw300">{{"labels.text.Section Buttons" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateLogo,logo,'bottom', true);">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFrequentlyAccessed,frequentlyAccessed,'bottom', true);">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
-
-<ng-template #templateFrequentlyAccessed let-popover="popover">
-  <h2>{{ 'labels.menus.Frequently Accessed' | translate }}</h2>
-  <p class="mw300">{{"labels.text.Shortcut to the frequently accessed components" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateUserPanel,userPanel,'bottom', true);">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateDashboard,dashboard,'bottom', true);">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
-
-<ng-template #templateDashboard let-popover="popover">
-  <h2>{{ 'labels.menus.Dashboard' | translate }}</h2>
-  <p class="mw300">{{"labels.text.User Dashboard Component" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFrequentlyAccessed,frequentlyAccessed,'bottom', true);">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateNavigation,navigation,'bottom', true);">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
-
-<ng-template #templateNavigation let-popover="popover">
-  <h2>{{ 'labels.menus.Navigation' | translate }}</h2>
-  <p class="mw300">{{"labels.text.User Entity navigation screen" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateDashboard,dashboard,'bottom', true);">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFrequentPostings,frequentPostings,'top', true);">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
-
-<ng-template #templateFrequentPostings let-popover="popover">
-  <h2>{{ 'labels.menus.Frequent Postings' | translate }}</h2>
-  <p class="mw300">{{"labels.text.Shortcut accounting rules" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateNavigation,navigation,'bottom', true);">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateCreateJournalEntry,createJournalEntry,'top', true);">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
-
-<ng-template #templateCreateJournalEntry let-popover="popover">
-  <h2>{{ 'labels.menus.Create Journal Entry' | translate }}</h2>
-  <p class="mw300">{{"labels.text.Shortcut entry screen" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateFrequentPostings,frequentPostings,'top', true);">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateChartOfAccounts,chartOfAccounts,'top', true);">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
-
-<ng-template #templateChartOfAccounts let-popover="popover">
-  <h2>{{ 'labels.menus.Chart of Accounts' | translate }}</h2>
-  <p class="mw300">{{"labels.text.Shortcut accounts screen" | translate }}</p>
-  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="2%" fxLayout.lt-md="column">
-    <button mat-raised-button color="warn" (click)="popover.close();configurationWizardService.closeConfigWizard()">{{"labels.buttons.Close" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();showPopover(templateCreateJournalEntry,createJournalEntry,'top', true);">{{"labels.buttons.Back" | translate }}</button>
-    <button mat-raised-button color="primary" (click)="popover.close();nextStep()">{{"labels.buttons.Next" | translate }}</button>
-  </div>
-</ng-template>
