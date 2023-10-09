@@ -111,50 +111,84 @@
                     </div>
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-
-                <div mat-menu-item [routerLink]="['/reports']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.All" | translate }}
-                </div>
+                <div class="border-l"> 
                 <div
-                  mat-menu-item
+                  [routerLink]="['/reports']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.All" | translate }}</span>
+                </div>
+               
+                <div
                   [routerLink]="['/reports', 'Client']"
                   [routerLinkActive]="'is-active'"
-                  class="f14 h36"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
                 >
-                  {{ "labels.menus.Clients" | translate }}
-                </div>
-                <div mat-menu-item [routerLink]="['/reports', 'Loan']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.Loans" | translate }}
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Clients" | translate }}</span>
                 </div>
                 <div
-                  mat-menu-item
+                  [routerLink]="['/reports', 'Loan']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Loans" | translate }}</span>
+                </div>
+                <div
                   [routerLink]="['/reports', 'Savings']"
                   [routerLinkActive]="'is-active'"
-                  class="f14 h36"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
                 >
-                  {{ "labels.menus.Savings" | translate }}
-                </div>
-                <div mat-menu-item [routerLink]="['/reports', 'Fund']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.Funds" | translate }}
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Savings" | translate }}</span>
                 </div>
                 <div
-                  mat-menu-item
+                  [routerLink]="['/reports', 'Fund']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Funds" | translate }}</span>
+                </div>
+                <div
                   [routerLink]="['/reports', 'Accounting']"
                   [routerLinkActive]="'is-active'"
-                  class="f14 h36"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
                 >
-                  {{ "labels.menus.Accounting" | translate }}
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Accounting" | translate }}</span>
                 </div>
-                <div mat-menu-item [routerLink]="['/xbrl']">{{ "labels.menus.XBRL" | translate }}</div>
+                <div [routerLink]="['/xbrl']" class="f14 text-gray-800 relative h-[43px] flex items-end">
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.XBRL" | translate }}</span>
+                </div>
+                </div>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
           <mat-list-item [routerLink]="['/settings']" [routerLinkActive]="'is-active'" matTooltip="Settings">
             <div class="flex items-center gap-x-[10px]">
               <app-settings-svg></app-settings-svg>
-           
 
-            <a matLine class="f14" #settings>{{ "labels.menus.Settings" | translate }}</a> </div>
+              <a matLine class="f14" #settings>{{ "labels.menus.Settings" | translate }}</a>
+            </div>
           </mat-list-item>
 
           <div
@@ -173,33 +207,71 @@
               >
                 <mat-expansion-panel-header class="p-h-15">
                   <mat-panel-title>
-                     <div class="flex items-center gap-x-[10px]">
+                    <div class="flex items-center gap-x-[10px]">
                       <app-admin-svg (click)="sidenavCollapsed = false"></app-admin-svg>
-                    
-                    <span
-                      [ngClass]="{
-                        hide: sidenavCollapsed
-                      }"
-                      class="f14"
-                    >
-                      {{ "labels.menus.Admin" | translate }}</span
-                    ></div>
+
+                      <span
+                        [ngClass]="{
+                          hide: sidenavCollapsed
+                        }"
+                        class="f14"
+                      >
+                        {{ "labels.menus.Admin" | translate }}</span
+                      >
+                    </div>
                   </mat-panel-title>
                 </mat-expansion-panel-header>
-                <div mat-menu-item [routerLink]="['/users']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.Users" | translate }}
+                <div class="border-l"> 
+                <div
+                  [routerLink]="['/users']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Users" | translate }}</span>
                 </div>
-                <div mat-menu-item [routerLink]="['/organization']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.Organization" | translate }}
+                <div
+                  [routerLink]="['/organization']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Organization" | translate }}</span>
                 </div>
-                <div mat-menu-item [routerLink]="['/system']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.System" | translate }}
+                <div
+                  [routerLink]="['/system']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.System" | translate }}</span>
                 </div>
-                <div mat-menu-item [routerLink]="['/products']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.Products" | translate }}
+                <div
+                  [routerLink]="['/products']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Products" | translate }}</span>
                 </div>
-                <div mat-menu-item [routerLink]="['/templates']" [routerLinkActive]="'is-active'" class="f14 h36">
-                  {{ "labels.menus.Templates" | translate }}
+                <div
+                  [routerLink]="['/templates']"
+                  [routerLinkActive]="'is-active'"
+                  class="f14 text-gray-800 relative h-[43px] flex items-end"
+                >
+                  <div
+                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                  ></div>
+                  <span class="pl-6"> {{ "labels.menus.Templates" | translate }}</span>
+                </div>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -222,46 +294,53 @@
                   <mat-panel-title>
                     <div class="flex items-center gap-x-[10px]">
                       <app-self-service-svg (click)="sidenavCollapsed = false"></app-self-service-svg>
-                   
 
-                    <span
-                      [ngClass]="{
-                        hide: sidenavCollapsed
-                      }"
-                      class="f14"
-                    >
-                      {{ "labels.menus.Self Service" | translate }}</span
-                    >
+                      <span
+                        [ngClass]="{
+                          hide: sidenavCollapsed
+                        }"
+                        class="f14"
+                      >
+                        {{ "labels.menus.Self Service" | translate }}</span
+                      >
                     </div>
                   </mat-panel-title>
                 </mat-expansion-panel-header>
 
-                <div
-                  mat-menu-item
-                  [routerLink]="['/self-service/users']"
-                  [routerLinkActive]="'is-active'"
-                  matTooltip="User Management"
-                  class="f14 h36"
-                >
-                  {{ "labels.menus.User Management" | translate }}
-                </div>
-                <div
-                  mat-menu-item
-                  [routerLink]="['/self-service/app-configuration']"
-                  [routerLinkActive]="'is-active'"
-                  matTooltip="App Configuration"
-                  class="f14 h36"
-                >
-                  {{ "labels.menus.App Configuration" | translate }}
-                </div>
-                <div
-                  mat-menu-item
-                  [routerLink]="['/self-service/task-management']"
-                  [routerLinkActive]="'is-active'"
-                  matTooltip="Task Management"
-                  class="f14 h36"
-                >
-                  {{ "labels.menus.Task Management" | translate }}
+                <div class="border-l"> 
+                  <div
+                    [routerLink]="['/self-service/users']"
+                    [routerLinkActive]="'is-active'"
+                    matTooltip="User Management"
+                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.User Management" | translate }}</span>
+                  </div>
+                  <div
+                    [routerLink]="['/self-service/app-configuration']"
+                    [routerLinkActive]="'is-active'"
+                    matTooltip="App Configuration"
+                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.App Configuration" | translate }}</span>
+                  </div>
+                  <div
+                    [routerLink]="['/self-service/task-management']"
+                    [routerLinkActive]="'is-active'"
+                    matTooltip="Task Management"
+                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Task Management" | translate }}</span>
+                  </div>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
