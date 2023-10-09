@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./client.component.css']
 })
 export class ClientSvgComponent {
-  fillColor = 'rgb(255, 0, 0)';
+   fillColor = '#454745';
 
   changeColor() {
     const r = Math.floor(Math.random() * 256);

@@ -36,3 +36,29 @@ textarea.noresize {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+.mat-content.mat-content-hide-toggle {
+  margin-right: 0 !important;
+}
+.svg-active{
+  path{
+    stroke:#163300;
+  }
+}
+.is-active {
+  color: #163300 !important;
+  background: #9fe870;
+  border-radius: 10px;
+  span {
+    div {
+      a {
+        color: #163300 !important;
+      }
+    }
+  }
+}
+.is-sub-active {
+  color: #163300 !important;
+ font-weight: 600;
+
+}
