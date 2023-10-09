@@ -8,7 +8,7 @@
     <!-- TODO: Allow customization by organization -->
     <div>
       <div
-        class="app-brand"
+        class="app-brand pt-[30px]"
         [routerLink]="['/home']"
         [ngClass]="{
           'pl-4': !sidenavCollapsed,
@@ -17,78 +17,126 @@
       >
         <img
           [ngClass]="{
-            hide: !sidenavCollapsed,
+            '!hidden': !sidenavCollapsed,
             show: sidenavCollapsed
           }"
           src="assets/images/icon.png"
           alt="app-logo"
-          class="app-logo"
+          class="w-20 h-auto px-3"
         />
         <img
           [ngClass]="{
             show: !sidenavCollapsed,
-            hide: sidenavCollapsed
+            '!hidden': sidenavCollapsed
           }"
           src="assets/images/logo.svg"
           alt="app-logo"
-          class="app-logo"
+          class="w-auto h-7"
         />
       </div>
 
       <div class="app-sidenav px-5">
         <mat-nav-list>
-          <mat-list-item [routerLink]="['/home']" [routerLinkActive]="'is-active'" matTooltip="Home">
-            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+          <mat-list-item [routerLink]="['/home']" [routerLinkActive]="'is-active'" matTooltip="Home" class="!px-0">
+            <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-home-svg [routerLinkActive]="'svg-active'"></app-home-svg>
 
-              <a matListItemLine class="f14" #home>{{ "labels.breadcrumbs.Home" | translate }}</a>
+              <a
+                matListItemLine
+                [ngClass]="{
+                  show: !sidenavCollapsed,
+                  '!hidden': sidenavCollapsed
+                }"
+                class="f14"
+                #home
+                >{{ "labels.breadcrumbs.Home" | translate }}</a
+              >
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/dashboard']" [routerLinkActive]="'is-active'" matTooltip="Dashboard">
-            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+            <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-dashboard-svg [routerLinkActive]="'svg-active'"></app-dashboard-svg>
 
-              <a matLine class="f14" [routerLinkActive]="'!text-[#163300]'" #dashboard>{{
-                "labels.menus.Dashboard" | translate
-              }}</a>
+              <a
+                matLine
+                class="f14"
+                [ngClass]="{
+                  show: !sidenavCollapsed,
+                  '!hidden': sidenavCollapsed
+                }"
+                [routerLinkActive]="'!text-[#163300]'"
+                #dashboard
+                >{{ "labels.menus.Dashboard" | translate }}</a
+              >
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/groups']" [routerLinkActive]="'is-active'" matTooltip="Groups">
-            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+            <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-groups-svg [routerLinkActive]="'svg-active'"></app-groups-svg>
 
-              <a matLine class="f14" #groups>{{ "labels.menus.Groups" | translate }}</a>
+              <a
+                matLine
+                [ngClass]="{
+                  show: !sidenavCollapsed,
+                  '!hidden': sidenavCollapsed
+                }"
+                class="f14"
+                #groups
+                >{{ "labels.menus.Groups" | translate }}</a
+              >
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/centers']" [routerLinkActive]="'is-active'" matTooltip="Centers">
-            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+            <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-center-svg [routerLinkActive]="'svg-active'"></app-center-svg>
 
-              <a matLine class="f14" #centers>{{ "labels.menus.Centers" | translate }}</a>
+              <a
+                matLine
+                [ngClass]="{
+                  show: !sidenavCollapsed,
+                  '!hidden': sidenavCollapsed
+                }"
+                class="f14"
+                #centers
+                >{{ "labels.menus.Centers" | translate }}</a
+              >
             </div>
           </mat-list-item>
 
           <mat-list-item [routerLink]="['/clients']" [routerLinkActive]="'is-active'" matTooltip="Clients">
-            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+            <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-client-svg [routerLinkActive]="'svg-active'"></app-client-svg>
 
-              <a matLine class="f14" #clients>{{ "labels.menus.Clients" | translate }}</a>
+              <a
+                matLine
+                [ngClass]="{
+                  show: !sidenavCollapsed,
+                  '!hidden': sidenavCollapsed
+                }"
+                class="f14"
+                #clients
+                >{{ "labels.menus.Clients" | translate }}</a
+              >
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/accounting']" [routerLinkActive]="'is-active'" matTooltip="Accounting">
-            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+            <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-accounting-svg [routerLinkActive]="'svg-active'"></app-accounting-svg>
 
-              <a matLine class="f14" #accounting>{{ "labels.menus.Accounting" | translate }}</a>
+              <a
+                matLine
+                [ngClass]="{
+                  show: !sidenavCollapsed,
+                  '!hidden': sidenavCollapsed
+                }"
+                class="f14"
+                #accounting
+                >{{ "labels.menus.Accounting" | translate }}</a
+              >
             </div>
           </mat-list-item>
 
-          <div
-            class="p-h-8"
-            [ngClass]="{
-              hide: sidenavCollapsed
-            }"
-          >
+          <div class="p-h-8">
             <mat-accordion>
               <mat-expansion-panel
                 (opened)="reportsOpenState = true"
@@ -100,12 +148,12 @@
               >
                 <mat-expansion-panel-header class="p-h-15">
                   <mat-panel-title class="!mr-0">
-                    <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+                    <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
                       <app-report-svg (click)="sidenavCollapsed = false"></app-report-svg>
 
                       <span
                         [ngClass]="{
-                          hide: sidenavCollapsed,
+                          '!hidden': sidenavCollapsed,
                           'text-[#0E0F0C]': reportsOpenState
                         }"
                         class="f14"
@@ -114,16 +162,21 @@
                       >
                     </div>
                   </mat-panel-title>
-                  <span>
+                  <span
+                    [ngClass]="{
+                      show: !sidenavCollapsed,
+                      '!hidden': sidenavCollapsed
+                    }"
+                  >
                     <app-plus-svg
                       [ngClass]="{
-                        hidden: reportsOpenState
+                        '!hidden': reportsOpenState
                       }"
                     ></app-plus-svg>
-                    <app-minus-svg [ngClass]="{ hidden: !reportsOpenState }"></app-minus-svg>
+                    <app-minus-svg [ngClass]="{ '!hidden': !reportsOpenState }"></app-minus-svg>
                   </span>
                 </mat-expansion-panel-header>
-                <div class="overflow-hidden">
+                <div class="overflow-'!hidden'">
                   <div
                     [routerLink]="['/reports']"
                     [routerLinkActive]="'is-sub-active'"
@@ -185,7 +238,11 @@
                     ></div>
                     <span class="pl-6"> {{ "labels.menus.Accounting" | translate }}</span>
                   </div>
-                  <div [routerLink]="['/xbrl']"  [routerLinkActive]="'is-sub-active'" class="f14 text-[#454745] font-medium relative h-[43px] flex items-end">
+                  <div
+                    [routerLink]="['/xbrl']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
@@ -196,19 +253,23 @@
             </mat-accordion>
           </div>
           <mat-list-item [routerLink]="['/settings']" [routerLinkActive]="'is-active'" matTooltip="Settings">
-            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+            <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-settings-svg [routerLinkActive]="'svg-active'"></app-settings-svg>
 
-              <a matLine class="f14" #settings>{{ "labels.menus.Settings" | translate }}</a>
+              <a
+                matLine
+                [ngClass]="{
+                  show: !sidenavCollapsed,
+                  '!hidden': sidenavCollapsed
+                }"
+                class="f14"
+                #settings
+                >{{ "labels.menus.Settings" | translate }}</a
+              >
             </div>
           </mat-list-item>
 
-          <div
-            class="p-h-8"
-            [ngClass]="{
-              hide: sidenavCollapsed
-            }"
-          >
+          <div class="p-h-8">
             <mat-accordion>
               <mat-expansion-panel
                 (opened)="panelOpenState = true"
@@ -220,12 +281,12 @@
               >
                 <mat-expansion-panel-header class="p-h-15">
                   <mat-panel-title>
-                    <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+                    <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
                       <app-admin-svg (click)="sidenavCollapsed = false"></app-admin-svg>
 
                       <span
                         [ngClass]="{
-                          hide: sidenavCollapsed,
+                          '!hidden': sidenavCollapsed,
                           'text-[#0E0F0C]': panelOpenState
                         }"
                         class="f14"
@@ -234,16 +295,21 @@
                       >
                     </div>
                   </mat-panel-title>
-                  <span>
+                  <span
+                    [ngClass]="{
+                      show: !sidenavCollapsed,
+                      '!hidden': sidenavCollapsed
+                    }"
+                  >
                     <app-plus-svg
                       [ngClass]="{
-                        hidden: panelOpenState
+                        '!hidden': panelOpenState
                       }"
                     ></app-plus-svg>
-                    <app-minus-svg [ngClass]="{ hidden: !panelOpenState }"></app-minus-svg>
+                    <app-minus-svg [ngClass]="{ '!hidden': !panelOpenState }"></app-minus-svg>
                   </span>
                 </mat-expansion-panel-header>
-                <div class="overflow-hidden">
+                <div class="overflow-'!hidden'">
                   <div
                     [routerLink]="['/users']"
                     [routerLinkActive]="'is-sub-active'"
@@ -298,13 +364,7 @@
               </mat-expansion-panel>
             </mat-accordion>
           </div>
-          <div
-            class="p-h-8"
-            [ngClass]="{
-              hide: sidenavCollapsed
-            }"
-            hideToggle
-          >
+          <div class="p-h-8" hideToggle>
             <mat-accordion>
               <mat-expansion-panel
                 (opened)="selfOpenState = true"
@@ -316,12 +376,12 @@
               >
                 <mat-expansion-panel-header class="p-h-15">
                   <mat-panel-title>
-                    <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+                    <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
                       <app-self-service-svg (click)="sidenavCollapsed = false"></app-self-service-svg>
 
                       <span
                         [ngClass]="{
-                          hide: sidenavCollapsed,
+                          '!hidden': sidenavCollapsed,
                           'text-[#0E0F0C]': selfOpenState
                         }"
                         class="f14"
@@ -330,17 +390,22 @@
                       >
                     </div>
                   </mat-panel-title>
-                  <span>
+                  <span
+                    [ngClass]="{
+                      show: !sidenavCollapsed,
+                      '!hidden': sidenavCollapsed
+                    }"
+                  >
                     <app-plus-svg
                       [ngClass]="{
-                        hidden: selfOpenState
+                        '!hidden': selfOpenState
                       }"
                     ></app-plus-svg>
-                    <app-minus-svg [ngClass]="{ hidden: !selfOpenState }"></app-minus-svg>
+                    <app-minus-svg [ngClass]="{ '!hidden': !selfOpenState }"></app-minus-svg>
                   </span>
                 </mat-expansion-panel-header>
 
-                <div class="overflow-hidden">
+                <div class="overflow-'!hidden'">
                   <div
                     [routerLink]="['/self-service/users']"
                     [routerLinkActive]="'is-sub-active'"
@@ -385,15 +450,15 @@
     <div class="bg-[#EDEFEB] w-[90%] px-[10px] py-[14px] rounded-lg mx-auto mb-8 flex justify-center items-center">
       <!-- <i
         [ngClass]="{
-          hide: !sidenavCollapsed,
+          '!hidden': !sidenavCollapsed,
           show: sidenavCollapsed
         }"
         class="fa fa-user-circle f28 text-grey-3 app-avatar text-4xl"
-        aria-hidden="true"
+        aria-'!hidden'="true"
       ></i> -->
       <img
         [ngClass]="{
-          hide: !sidenavCollapsed,
+          '!hidden': !sidenavCollapsed,
           show: sidenavCollapsed
         }"
         src="assets/images/av.svg"
@@ -406,10 +471,10 @@
         class="items-center gap-x-4"
         [ngClass]="{
           flex: !sidenavCollapsed,
-          hide: sidenavCollapsed
+          '!hidden': sidenavCollapsed
         }"
       >
-        <!-- <i class="fa fa-user-circle text-[30px] text-gray-400 app-avatar" aria-hidden="true"></i> -->
+        <!-- <i class="fa fa-user-circle text-[30px] text-gray-400 app-avatar" aria-'!hidden'="true"></i> -->
         <img src="assets/images/av.svg" class="rounded-full h-[30px] w-[30px]" alt="Admin" width="30" height="30" />
         <div class="text">
           <p class="text-xs text-[#0E0F0C] capitalize font-semibold">{{ username }}</p>

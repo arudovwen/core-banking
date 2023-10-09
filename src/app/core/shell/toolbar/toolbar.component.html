@@ -2,15 +2,28 @@
   <!-- <button mat-icon-button *ngIf="!sidenavCollapsed" (click)="toggleSidenav()" matTooltip="Toggle Hide/Open">
     <fa-icon icon="bars" size="lg" class="text-grey-3"></fa-icon>
   </button> -->
-  <!-- <button mat-icon-button *ngIf="sidenav.opened" (click)="toggleSidenavCollapse()" matTooltip="Toggle Collapse"
-    fxHide.lt-md="true" class="toggler">
 
-    <img src="assets/images/collapse-buttoncollapse.svg" *ngIf="sidenavCollapsed" alt="daashboard" width="24"
-      height="24" class="side-icon" />
-    <img src="assets/images/collapse-buttoncollapse-open.svg" *ngIf="!sidenavCollapsed" alt="daashboard" width="24"
-      height="24" class="side-icon" />
-  </button> -->
-
+  <button
+    mat-icon-button
+    *ngIf="sidenav.opened"
+    (click)="toggleSidenavCollapse()"
+    matTooltip="Toggle Collapse"
+    fxHide.lt-md="true"
+    class="toggler"
+  >
+  <svg xmlns="http://www.w3.org/2000/svg" *ngIf="!sidenavCollapsed" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M18 17L13 12L18 7M11 17L6 12L11 7"
+      stroke="#0E0F0C"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+    <svg xmlns="http://www.w3.org/2000/svg"  *ngIf="sidenavCollapsed" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M6 6.99951L11 11.9995L6 16.9995M13 6.99951L18 11.9995L13 16.9995" stroke="#0E0F0C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
 
   <mifosx-search-tool></mifosx-search-tool>
 

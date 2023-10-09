@@ -3,10 +3,7 @@
   .navigation-panel {
     width: 100%;
     height: 100vh;
-    padding-top: 20%;
-    overflow-x: hidden;
     background-color: #fff;
-    justify-content: space-between;
     border-left: 1px solid #ececec;
     color: #454745 !important;
   }
@@ -21,7 +18,7 @@
     justify-content: flex-start;
     text-align: center;
     max-width: 15rem;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     z-index: 9999;
     &:hover {
       cursor: pointer;
@@ -30,7 +27,7 @@
     .app-logo {
       width: auto;
       height: 28px;
-      margin-right: 8px;
+     
     }
 
     .app-logo-text {
@@ -185,7 +182,7 @@
 }
 .sidebar-full {
   .navigation-panel {
-    padding-top: 5%;
+    // padding-top: 5%;
   }
   .app-sidenav {
     .icon-menu {
@@ -203,7 +200,7 @@
   height: 36px;
 }
 .mat-expansion-panel-header {
-  padding: 0 15px;
+  padding: 0;
   height: 46px;
 }
 
@@ -258,3 +255,4 @@
 .mat-content.mat-content-hide-toggle {
   margin-right: 0 !important;
 }
+
