@@ -8,6 +8,7 @@
     background-color: #fff;
     justify-content: space-between;
     border-left: 1px solid #ececec;
+    color: #454745 !important;
   }
 
   img {
@@ -133,6 +134,9 @@
       }
     }
   }
+  .mat-content.mat-content-hide-toggle {
+    margin-right: 0 !important;
+  }
 }
 
 .sidebar-compact {
@@ -188,7 +192,6 @@
       flex-direction: row;
     }
   }
-
 }
 .pl-0 {
   padding-left: 0;
@@ -219,9 +222,16 @@
   line-height: 36px;
 }
 .is-active {
-  color: #163300;
+  color: #163300 !important;
   background: #9fe870;
   border-radius: 10px;
+  span {
+    div {
+      a {
+        color: #163300 !important;
+      }
+    }
+  }
 }
 .transparent {
   background-color: transparent !important;
@@ -244,4 +254,7 @@
 
 .f30 {
   font-size: 30px !important;
+}
+.mat-content.mat-content-hide-toggle {
+  margin-right: 0 !important;
 }

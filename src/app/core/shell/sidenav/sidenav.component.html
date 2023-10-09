@@ -37,45 +37,47 @@
 
       <div class="app-sidenav px-5">
         <mat-nav-list>
-          <mat-list-item [routerLink]="['/home']" [routerLinkActive]="'is-active '" matTooltip="Home">
-            <div class="flex items-center gap-x-[10px]">
-              <app-home-svg matListItemIcon></app-home-svg>
+          <mat-list-item [routerLink]="['/home']" [routerLinkActive]="'is-active'" matTooltip="Home">
+            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+              <app-home-svg [routerLinkActive]="'svg-active'"></app-home-svg>
 
               <a matListItemLine class="f14" #home>{{ "labels.breadcrumbs.Home" | translate }}</a>
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/dashboard']" [routerLinkActive]="'is-active'" matTooltip="Dashboard">
-            <div class="flex items-center gap-x-[10px]">
-              <app-dashboard-svg></app-dashboard-svg>
+            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+              <app-dashboard-svg [routerLinkActive]="'svg-active'"></app-dashboard-svg>
 
-              <a matLine class="f14" #dashboard>{{ "labels.menus.Dashboard" | translate }}</a>
+              <a matLine class="f14" [routerLinkActive]="'!text-[#163300]'" #dashboard>{{
+                "labels.menus.Dashboard" | translate
+              }}</a>
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/groups']" [routerLinkActive]="'is-active'" matTooltip="Groups">
-            <div class="flex items-center gap-x-[10px]">
-              <app-groups-svg></app-groups-svg>
+            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+              <app-groups-svg [routerLinkActive]="'svg-active'"></app-groups-svg>
 
               <a matLine class="f14" #groups>{{ "labels.menus.Groups" | translate }}</a>
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/centers']" [routerLinkActive]="'is-active'" matTooltip="Centers">
-            <div class="flex items-center gap-x-[10px]">
-              <app-center-svg></app-center-svg>
+            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+              <app-center-svg [routerLinkActive]="'svg-active'"></app-center-svg>
 
               <a matLine class="f14" #centers>{{ "labels.menus.Centers" | translate }}</a>
             </div>
           </mat-list-item>
 
           <mat-list-item [routerLink]="['/clients']" [routerLinkActive]="'is-active'" matTooltip="Clients">
-            <div class="flex items-center gap-x-[10px]">
-              <app-client-svg></app-client-svg>
+            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+              <app-client-svg [routerLinkActive]="'svg-active'"></app-client-svg>
 
               <a matLine class="f14" #clients>{{ "labels.menus.Clients" | translate }}</a>
             </div>
           </mat-list-item>
           <mat-list-item [routerLink]="['/accounting']" [routerLinkActive]="'is-active'" matTooltip="Accounting">
-            <div class="flex items-center gap-x-[10px]">
-              <app-accounting-svg></app-accounting-svg>
+            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+              <app-accounting-svg [routerLinkActive]="'svg-active'"></app-accounting-svg>
 
               <a matLine class="f14" #accounting>{{ "labels.menus.Accounting" | translate }}</a>
             </div>
@@ -94,15 +96,17 @@
                 [ngClass]="{
                   transparent: !reportsOpenState
                 }"
+                hideToggle
               >
                 <mat-expansion-panel-header class="p-h-15">
-                  <mat-panel-title>
-                    <div class="flex items-center gap-x-[10px]">
+                  <mat-panel-title class="!mr-0">
+                    <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
                       <app-report-svg (click)="sidenavCollapsed = false"></app-report-svg>
 
                       <span
                         [ngClass]="{
-                          hide: sidenavCollapsed
+                          hide: sidenavCollapsed,
+                          'text-[#0E0F0C]': reportsOpenState
                         }"
                         class="f14"
                       >
@@ -110,82 +114,90 @@
                       >
                     </div>
                   </mat-panel-title>
+                  <span>
+                    <app-plus-svg
+                      [ngClass]="{
+                        hidden: reportsOpenState
+                      }"
+                    ></app-plus-svg>
+                    <app-minus-svg [ngClass]="{ hidden: !reportsOpenState }"></app-minus-svg>
+                  </span>
                 </mat-expansion-panel-header>
-                <div class="border-l"> 
-                <div
-                  [routerLink]="['/reports']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                <div class="overflow-hidden">
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.All" | translate }}</span>
-                </div>
-               
-                <div
-                  [routerLink]="['/reports', 'Client']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/reports']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.All" | translate }}</span>
+                  </div>
+
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Clients" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/reports', 'Loan']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/reports', 'Client']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Clients" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Loans" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/reports', 'Savings']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/reports', 'Loan']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Loans" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Savings" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/reports', 'Fund']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/reports', 'Savings']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Savings" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Funds" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/reports', 'Accounting']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/reports', 'Fund']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Funds" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Accounting" | translate }}</span>
-                </div>
-                <div [routerLink]="['/xbrl']" class="f14 text-gray-800 relative h-[43px] flex items-end">
-                  <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.XBRL" | translate }}</span>
-                </div>
+                    [routerLink]="['/reports', 'Accounting']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Accounting" | translate }}</span>
+                  </div>
+                  <div [routerLink]="['/xbrl']"  [routerLinkActive]="'is-sub-active'" class="f14 text-[#454745] font-medium relative h-[43px] flex items-end">
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.XBRL" | translate }}</span>
+                  </div>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
           <mat-list-item [routerLink]="['/settings']" [routerLinkActive]="'is-active'" matTooltip="Settings">
-            <div class="flex items-center gap-x-[10px]">
-              <app-settings-svg></app-settings-svg>
+            <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
+              <app-settings-svg [routerLinkActive]="'svg-active'"></app-settings-svg>
 
               <a matLine class="f14" #settings>{{ "labels.menus.Settings" | translate }}</a>
             </div>
@@ -204,15 +216,17 @@
                 [ngClass]="{
                   transparent: !panelOpenState
                 }"
+                hideToggle
               >
                 <mat-expansion-panel-header class="p-h-15">
                   <mat-panel-title>
-                    <div class="flex items-center gap-x-[10px]">
+                    <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
                       <app-admin-svg (click)="sidenavCollapsed = false"></app-admin-svg>
 
                       <span
                         [ngClass]="{
-                          hide: sidenavCollapsed
+                          hide: sidenavCollapsed,
+                          'text-[#0E0F0C]': panelOpenState
                         }"
                         class="f14"
                       >
@@ -220,58 +234,66 @@
                       >
                     </div>
                   </mat-panel-title>
+                  <span>
+                    <app-plus-svg
+                      [ngClass]="{
+                        hidden: panelOpenState
+                      }"
+                    ></app-plus-svg>
+                    <app-minus-svg [ngClass]="{ hidden: !panelOpenState }"></app-minus-svg>
+                  </span>
                 </mat-expansion-panel-header>
-                <div class="border-l"> 
-                <div
-                  [routerLink]="['/users']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                <div class="overflow-hidden">
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Users" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/organization']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/users']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Users" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Organization" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/system']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/organization']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Organization" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.System" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/products']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/system']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.System" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Products" | translate }}</span>
-                </div>
-                <div
-                  [routerLink]="['/templates']"
-                  [routerLinkActive]="'is-active'"
-                  class="f14 text-gray-800 relative h-[43px] flex items-end"
-                >
+                    [routerLink]="['/products']"
+                    [routerLinkActive]="'is-sub-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Products" | translate }}</span>
+                  </div>
                   <div
-                    class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
-                  ></div>
-                  <span class="pl-6"> {{ "labels.menus.Templates" | translate }}</span>
-                </div>
+                    [routerLink]="['/templates']"
+                    [routerLinkActive]="'is-active'"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
+                  >
+                    <div
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                    ></div>
+                    <span class="pl-6"> {{ "labels.menus.Templates" | translate }}</span>
+                  </div>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
@@ -281,6 +303,7 @@
             [ngClass]="{
               hide: sidenavCollapsed
             }"
+            hideToggle
           >
             <mat-accordion>
               <mat-expansion-panel
@@ -289,15 +312,17 @@
                 [ngClass]="{
                   transparent: !selfOpenState
                 }"
+                hideToggle
               >
                 <mat-expansion-panel-header class="p-h-15">
                   <mat-panel-title>
-                    <div class="flex items-center gap-x-[10px]">
+                    <div class="flex items-center gap-x-[10px] text-[#454745] font-medium">
                       <app-self-service-svg (click)="sidenavCollapsed = false"></app-self-service-svg>
 
                       <span
                         [ngClass]="{
-                          hide: sidenavCollapsed
+                          hide: sidenavCollapsed,
+                          'text-[#0E0F0C]': selfOpenState
                         }"
                         class="f14"
                       >
@@ -305,39 +330,47 @@
                       >
                     </div>
                   </mat-panel-title>
+                  <span>
+                    <app-plus-svg
+                      [ngClass]="{
+                        hidden: selfOpenState
+                      }"
+                    ></app-plus-svg>
+                    <app-minus-svg [ngClass]="{ hidden: !selfOpenState }"></app-minus-svg>
+                  </span>
                 </mat-expansion-panel-header>
 
-                <div class="border-l"> 
+                <div class="overflow-hidden">
                   <div
                     [routerLink]="['/self-service/users']"
-                    [routerLinkActive]="'is-active'"
+                    [routerLinkActive]="'is-sub-active'"
                     matTooltip="User Management"
-                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
                   >
                     <div
-                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
                     <span class="pl-6"> {{ "labels.menus.User Management" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/self-service/app-configuration']"
-                    [routerLinkActive]="'is-active'"
+                    [routerLinkActive]="'is-sub-active'"
                     matTooltip="App Configuration"
-                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
                   >
                     <div
-                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
                     <span class="pl-6"> {{ "labels.menus.App Configuration" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/self-service/task-management']"
-                    [routerLinkActive]="'is-active'"
+                    [routerLinkActive]="'is-sub-active'"
                     matTooltip="Task Management"
-                    class="f14 text-gray-800 relative h-[43px] flex items-end"
+                    class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
                   >
                     <div
-                      class="h-[20px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
+                      class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
                     <span class="pl-6"> {{ "labels.menus.Task Management" | translate }}</span>
                   </div>

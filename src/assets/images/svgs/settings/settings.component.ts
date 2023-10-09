@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsSvgComponent {
-  fillColor = 'rgb(255, 0, 0)';
+   fillColor = '#454745';
 
   changeColor() {
     const r = Math.floor(Math.random() * 256);

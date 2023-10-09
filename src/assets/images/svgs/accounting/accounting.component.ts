@@ -6,12 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./accounting.component.css']
 })
 export class AccountingSvgComponent {
-  fillColor = 'rgb(255, 0, 0)';
+   fillColor = '#454745';
 
-  changeColor() {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    this.fillColor = `rgb(${r}, ${g}, ${b})`;
-  }
+ 
 }
