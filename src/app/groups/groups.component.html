@@ -1,11 +1,15 @@
-<mat-card class="container">
-
-  <div fxLayout="row" fxLayoutAlign="start center">
+<div class="container">
+  <div fxLayout="row" fxLayoutAlign="start center" class="mb-5 gap-x-5">
     <div class="search-box">
-      <mat-form-field>
-        <input matInput placeholder="Search by Name" [formControl]="name">
-      </mat-form-field>
-      <mat-checkbox #showClosedGroups labelPosition="after" (change)="changeShowClosedGroups()">Show Closed Groups</mat-checkbox>
+      <input
+        placeholder="Search by Name"
+        [formControl]="name"
+        class="border border-[#DFE5EC] h-12 pl-[15px] min-w-[250px] flex-1 max-w-[400px] w-full rounded-lg focus:ring-0 focus:outline-none focus:border-gray-200 text-sm focus-within:outline-none placeholder:text-[#BEBEBE] focus:shadow-none"
+      />
+
+      <mat-checkbox #showClosedGroups labelPosition="after" (change)="changeShowClosedGroups()"
+        >Show Closed Groups</mat-checkbox
+      >
     </div>
     <div class="action-button" fxLayoutGap="25px">
       <button mat-raised-button color="primary" [routerLink]="['../', 'organization', 'bulk-import', 'Groups']">
@@ -17,42 +21,51 @@
     </div>
   </div>
 
-  <table mat-table [dataSource]="dataSource" matSort>
+  <div class="rounded-lg border border-[#DFE5EC] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] overflow-hidden">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let group">{{ group.name }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-      <td mat-cell *matCellDef="let group"> {{ group.name }} </td>
-    </ng-container>
+      <ng-container matColumnDef="accountNo">
+        <th mat-header-cell *matHeaderCellDef>Account #</th>
+        <td mat-cell *matCellDef="let group">{{ group.accountNo }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="accountNo">
-      <th mat-header-cell *matHeaderCellDef> Account # </th>
-      <td mat-cell *matCellDef="let group"> {{ group.accountNo }} </td>
-    </ng-container>
+      <ng-container matColumnDef="externalId">
+        <th mat-header-cell *matHeaderCellDef>ExternalID</th>
+        <td mat-cell *matCellDef="let group">{{ group.externalId }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="externalId">
-      <th mat-header-cell *matHeaderCellDef> ExternalID </th>
-      <td mat-cell *matCellDef="let group"> {{ group.externalId }} </td>
-    </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let row">
+          <div [ngClass]="row.status.code | statusLookup">
+            <fa-icon icon="stop"></fa-icon>
+          </div>
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let row">
-        <div [ngClass]="row.status.code|statusLookup">
-          <fa-icon icon="stop"></fa-icon>
-        </div>
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="officeName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Office Name</th>
+        <td mat-cell *matCellDef="let group">{{ group.officeName }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="officeName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Office Name </th>
-      <td mat-cell *matCellDef="let group"> {{ group.officeName }} </td>
-    </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [routerLink]="[row.id, 'general']"
+        class="select-row"
+      ></tr>
+    </table>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="[row.id,'general']" class="select-row"></tr>
-
-  </table>
-
-  <mat-paginator [length]="dataSource?.records$ | async" [pageSize]="10" [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
-
-</mat-card>
+    <mat-paginator
+      [length]="dataSource?.records$ | async"
+      [pageSize]="10"
+      [pageSizeOptions]="[10, 25, 50, 100]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>
