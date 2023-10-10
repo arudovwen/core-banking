@@ -41,12 +41,17 @@ table {
   }
 }
 th.mat-header-cell {
-  background-color: #f5f7f9;
+  background-color: #F9FAFB;
   border-bottom-width: 1px;
+  border-color: #EAECF0;
+  color:#0E0F0C;
+  font-size: 12px;
+  font-weight:500;
 }
 .mat-header-cell {
+  color:#0E0F0C;
   font-size: 12px;
-  font-weight: 600;
+  font-weight:500;
 }
 tr.mat-header-row {
   height: 50px;
