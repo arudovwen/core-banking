@@ -5,9 +5,10 @@
   .login-input {
     width: 462px;
     margin-bottom: 0.6rem;
-    .field {
-      border-radius: 19px;
-    }
+    border-radius: 50px;
+    // .field {
+    //   border-radius: 19px !important;
+    // }
   }
   .login-text {
     width: 462px;
@@ -43,4 +44,14 @@
     font-weight: 400;
     line-height: 150%; /* 19.5px */
   }
+}
+
+::ng-deep .mat-form-field-outline-start {
+  border-radius: 10px 0 0 10px !important;
+  min-width: 10px !important;
+}
+
+::ng-deep .mat-form-field-outline-end {
+  border-radius: 0 10px 10px 0 !important;
+  min-width: 10px !important;
 }
