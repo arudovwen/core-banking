@@ -11,7 +11,7 @@
     <mat-label>{{ "labels.inputs.Username" | translate }}</mat-label>
 
     <mat-form-field appearance="outline" fxFlexAlign="center" class="login-input inputBorder">
-      <input matInput type="text" autocomplete="off" formControlName="username" />
+      <input matInput class="field" type="text" autocomplete="off" formControlName="username" />
       <mat-error *ngIf="loginForm.controls.username.hasError('required')">
         {{ "labels.inputs.Username" | translate }} <strong>{{ "labels.commons.is required" | translate }}</strong>
       </mat-error>
@@ -21,7 +21,7 @@
   <div fxLayout="column" fxLayoutGap="2px">
     <mat-label>{{ "labels.inputs.Password" | translate }}</mat-label>
     <mat-form-field appearance="outline" fxFlexAlign="center" class="login-input">
-      <input matInput type="{{ passwordInputType }}" formControlName="password" />
+      <input class="field" matInput type="{{ passwordInputType }}" formControlName="password" />
       <button
         mat-button
         *ngIf="loginForm.controls.password.value && !loading"
