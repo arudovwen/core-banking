@@ -11,17 +11,37 @@
     fxHide.lt-md="true"
     class="toggler"
   >
-  <svg xmlns="http://www.w3.org/2000/svg" *ngIf="!sidenavCollapsed" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path
-      d="M18 17L13 12L18 7M11 17L6 12L11 7"
-      stroke="#0E0F0C"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-    <svg xmlns="http://www.w3.org/2000/svg"  *ngIf="sidenavCollapsed" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <path d="M6 6.99951L11 11.9995L6 16.9995M13 6.99951L18 11.9995L13 16.9995" stroke="#0E0F0C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      *ngIf="!sidenavCollapsed"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M18 17L13 12L18 7M11 17L6 12L11 7"
+        stroke="#0E0F0C"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      *ngIf="sidenavCollapsed"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <path
+        d="M6 6.99951L11 11.9995L6 16.9995M13 6.99951L18 11.9995L13 16.9995"
+        stroke="#0E0F0C"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </svg>
   </button>
 
@@ -29,22 +49,26 @@
 
   <span fxFlex="auto"></span>
 
- <div class="flex gap-x-5 items-center">
-  <mifosx-language-selector class="ml-1 language" fxHide.lt-md></mifosx-language-selector>
+  <div class="flex gap-x-5 items-center">
+    <mifosx-language-selector class="ml-1 language" fxHide.lt-md></mifosx-language-selector>
 
-  <!-- <mifosx-theme-picker fxHide.lt-md></mifosx-theme-picker> -->
+    <!-- <mifosx-theme-picker fxHide.lt-md></mifosx-theme-picker> -->
 
-  <mifosx-notifications-tray fxHide.lt-md></mifosx-notifications-tray>
-  <!-- <button class="grid-tab bg-gray-100 flex items-center justify-center h-12 w-12 rounded-full"
+    <mifosx-notifications-tray fxHide.lt-md></mifosx-notifications-tray>
+    <!-- <button class="grid-tab bg-gray-100 flex items-center justify-center h-12 w-12 rounded-full"
     [matMenuTriggerFor]="applicationsMenu">
     <img src="assets/images/grid.svg" class="h-5 w-5" />
   </button> -->
 
-  <!-- <button mat-icon-button class="ml-1 img-button" [matMenuTriggerFor]="applicationMenu">
-    <img src="assets/images/user_placeholder.png">
-    <fa-icon icon="user" class="text-grey-3" size="lg"></fa-icon>
-  </button> -->
- </div>
+    <button
+    
+   
+      [matMenuTriggerFor]="applicationMenu"
+      class="bg-[#EDEFEB] rounded-full flex items-center justify-center h-[44px] w-[44px] uppercase font-semibold text-sm"
+    >
+     la
+    </button>
+  </div>
 </mat-toolbar>
 
 <mat-menu #institutionMenu="matMenu" [overlapTrigger]="false">
@@ -112,16 +136,13 @@
   </button>
 </mat-menu>
 <!-- Applications Redirect User Help Menu -->
-<mat-menu #applicationsMenu="matMenu"  xPosition="before">
+<mat-menu #applicationsMenu="matMenu" xPosition="before">
   <div class="redir-tab">
-    <button mat-menu-item *ngFor="let item of applications; index as i;">
-    
-        <img src={{item.logo}} class="mx-auto" />
-        <p class="text-[#575267] text-xs font-medium text-center">
-          {{ item.title }}
-        </p>
-     
+    <button mat-menu-item *ngFor="let item of applications; index as i">
+      <img src="{{ item.logo }}" class="mx-auto" />
+      <p class="text-[#575267] text-xs font-medium text-center">
+        {{ item.title }}
+      </p>
     </button>
   </div>
-
 </mat-menu>

@@ -37,7 +37,7 @@
 
       <div class="app-sidenav px-5">
         <mat-nav-list>
-          <mat-list-item [routerLink]="['/home']" [routerLinkActive]="'is-active'" matTooltip="Home" class="!px-0">
+          <mat-list-item [routerLink]="['/home']" [routerLinkActive]="'is-active'" matTooltipPosition="right" matTooltip="Home"  class="!px-0">
             <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-home-svg [routerLinkActive]="'svg-active'"></app-home-svg>
 
@@ -53,7 +53,7 @@
               >
             </div>
           </mat-list-item>
-          <mat-list-item [routerLink]="['/dashboard']" [routerLinkActive]="'is-active'" matTooltip="Dashboard">
+          <mat-list-item [routerLink]="['/dashboard']" [routerLinkActive]="'is-active'" matTooltipPosition="right" matTooltip="Dashboard">
             <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-dashboard-svg [routerLinkActive]="'svg-active'"></app-dashboard-svg>
 
@@ -70,7 +70,7 @@
               >
             </div>
           </mat-list-item>
-          <mat-list-item [routerLink]="['/groups']" [routerLinkActive]="'is-active'" matTooltip="Groups">
+          <mat-list-item [routerLink]="['/groups']" [routerLinkActive]="'is-active'" matTooltipPosition="right" matTooltip="Groups">
             <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-groups-svg [routerLinkActive]="'svg-active'"></app-groups-svg>
 
@@ -86,7 +86,7 @@
               >
             </div>
           </mat-list-item>
-          <mat-list-item [routerLink]="['/centers']" [routerLinkActive]="'is-active'" matTooltip="Centers">
+          <mat-list-item [routerLink]="['/centers']" [routerLinkActive]="'is-active'" matTooltipPosition="right" matTooltip="Centers">
             <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-center-svg [routerLinkActive]="'svg-active'"></app-center-svg>
 
@@ -103,7 +103,7 @@
             </div>
           </mat-list-item>
 
-          <mat-list-item [routerLink]="['/clients']" [routerLinkActive]="'is-active'" matTooltip="Clients">
+          <mat-list-item [routerLink]="['/clients']" [routerLinkActive]="'is-active'" matTooltipPosition="right" matTooltip="Clients">
             <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-client-svg [routerLinkActive]="'svg-active'"></app-client-svg>
 
@@ -119,7 +119,7 @@
               >
             </div>
           </mat-list-item>
-          <mat-list-item [routerLink]="['/accounting']" [routerLinkActive]="'is-active'" matTooltip="Accounting">
+          <mat-list-item [routerLink]="['/accounting']" [routerLinkActive]="'is-active'" matTooltipPosition="right" matTooltip="Accounting">
             <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-accounting-svg [routerLinkActive]="'svg-active'"></app-accounting-svg>
 
@@ -185,7 +185,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.All" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.All" | translate }}</span>
                   </div>
 
                   <div
@@ -196,7 +196,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Clients" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Clients" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/reports', 'Loan']"
@@ -206,7 +206,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Loans" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Loans" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/reports', 'Savings']"
@@ -216,7 +216,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Savings" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Savings" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/reports', 'Fund']"
@@ -226,7 +226,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Funds" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Funds" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/reports', 'Accounting']"
@@ -236,7 +236,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Accounting" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Accounting" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/xbrl']"
@@ -246,13 +246,13 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.XBRL" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.XBRL" | translate }}</span>
                   </div>
                 </div>
               </mat-expansion-panel>
             </mat-accordion>
           </div>
-          <mat-list-item [routerLink]="['/settings']" [routerLinkActive]="'is-active'" matTooltip="Settings">
+          <mat-list-item [routerLink]="['/settings']" [routerLinkActive]="'is-active'" matTooltipPosition="right" matTooltip="Settings">
             <div class="flex items-center gap-x-[10px] text-[#454745] px-[10px] font-medium">
               <app-settings-svg [routerLinkActive]="'svg-active'"></app-settings-svg>
 
@@ -318,7 +318,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Users" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Users" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/organization']"
@@ -328,7 +328,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Organization" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Organization" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/system']"
@@ -338,7 +338,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.System" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.System" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/products']"
@@ -348,7 +348,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Products" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Products" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/templates']"
@@ -358,7 +358,7 @@
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Templates" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Templates" | translate }}</span>
                   </div>
                 </div>
               </mat-expansion-panel>
@@ -409,35 +409,35 @@
                   <div
                     [routerLink]="['/self-service/users']"
                     [routerLinkActive]="'is-sub-active'"
-                    matTooltip="User Management"
+                    matTooltipPosition="right" matTooltip="User Management"
                     class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
                   >
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.User Management" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.User Management" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/self-service/app-configuration']"
                     [routerLinkActive]="'is-sub-active'"
-                    matTooltip="App Configuration"
+                    matTooltipPosition="right" matTooltip="App Configuration"
                     class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
                   >
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.App Configuration" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.App Configuration" | translate }}</span>
                   </div>
                   <div
                     [routerLink]="['/self-service/task-management']"
                     [routerLinkActive]="'is-sub-active'"
-                    matTooltip="Task Management"
+                    matTooltipPosition="right" matTooltip="Task Management"
                     class="f14 text-[#454745] font-medium relative h-[43px] flex items-end"
                   >
                     <div
                       class="h-[50px] w-[20px] border-l border-b rounded-bl-lg mb-[10px] absolute left-0 bottom-0"
                     ></div>
-                    <span class="pl-6"> {{ "labels.menus.Task Management" | translate }}</span>
+                    <span class="pl-6 cursor-pointer"> {{ "labels.menus.Task Management" | translate }}</span>
                   </div>
                 </div>
               </mat-expansion-panel>
