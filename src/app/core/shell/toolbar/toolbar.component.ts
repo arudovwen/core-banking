@@ -29,7 +29,7 @@ export class ToolbarComponent implements OnInit {
     );
 
   /** Sets the initial state of sidenav as collapsed. Not collapsed if false. */
-  sidenavCollapsed = true;
+  sidenavCollapsed = false;
   applications = [
     // {
     //   url: `http://3.16.1.81:777`,

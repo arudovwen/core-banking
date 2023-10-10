@@ -52,11 +52,14 @@ div {
 }
 
 ::ng-deep .mat-tooltip {
-  font-size: 15px;
+  font-size: 13px;
   white-space: pre-wrap;
-  color: $white !important;
-  background-color: rgba($status-approved, .7);
-  border: 1px solid darken($status-approved, 20%);
+  color: #163300 !important;
+  background-color: rgba(#9FE870, .7);
+  border: 1px solid darken(#9FE870, 20%);
   max-width: 400px !important;
   white-space: pre-line !important;
  }
+ .app-sidenav .mat-list-base .mat-list-item .mat-list-item-content{
+  padding: 0 !important;
+}
