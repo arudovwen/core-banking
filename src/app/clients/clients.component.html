@@ -1,16 +1,24 @@
-<mat-card class="container">
+<div class="container">
   <div fxLayout="row" fxLayoutAlign="start center">
     <div class="search-box m-r-30">
-      <mat-form-field class="search-box">
-        <input matInput placeholder="Search by client name, external Id, mobile" class="search-box" (keydown.enter)="search($event.target.value)">
-      </mat-form-field>
+      <div class="search-box">
+        <input
+          placeholder="Search by client name, external Id, mobile"
+          class="border border-[#DFE5EC] h-12 pl-[15px] max-w-[400px] w-full rounded-lg focus:ring-0 focus:outline-none focus:border-gray-200 text-sm focus-within:outline-none placeholder:text-[#BEBEBE] focus:shadow-none"
+          (keydown.enter)="search($event.target.value)"
+        />
+      </div>
     </div>
     <div class="filter-box" *ngIf="existsClientsToFilter">
-      <mat-checkbox #showClosedAccounts labelPosition="after" class="m-r-10">Show Closed Accounts
-      </mat-checkbox>
+      <mat-checkbox #showClosedAccounts labelPosition="after" class="m-r-10">Show Closed Accounts </mat-checkbox>
     </div>
     <div class="action-button" fxLayoutGap="25px">
-      <button mat-raised-button color="primary" [routerLink]="['../', 'organization', 'bulk-import', 'Clients']" *mifosxHasPermission="'CREATE_CLIENT'">
+      <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="['../', 'organization', 'bulk-import', 'Clients']"
+        *mifosxHasPermission="'CREATE_CLIENT'"
+      >
         <fa-icon icon="download" class="m-r-10"></fa-icon>Import Client
       </button>
       <button mat-raised-button color="primary" [routerLink]="['create']" *mifosxHasPermission="'CREATE_CLIENT'">
@@ -19,35 +27,37 @@
     </div>
   </div>
 
-  <div [hidden]="!existsClientsToFilter">
+  <div
+    [hidden]="!existsClientsToFilter"
+    class="rounded-lg border border-[#DFE5EC] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] overflow-hidden"
+  >
     <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortChanged($event)">
-
       <!-- Name Column -->
       <ng-container matColumnDef="displayName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row" [routerLink]="[row.id,'general']"> {{row.displayName}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let row" [routerLink]="[row.id, 'general']">{{ row.displayName }}</td>
       </ng-container>
 
       <!-- Account no Column -->
       <ng-container matColumnDef="accountNumber">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Account No. </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Account No.</th>
         <td mat-cell *matCellDef="let row">
-          <mifosx-account-number display="left" accountNo="{{row.accountNumber}}"></mifosx-account-number>
+          <mifosx-account-number display="left" accountNo="{{ row.accountNumber }}"></mifosx-account-number>
         </td>
       </ng-container>
 
       <!-- External ID Column -->
       <ng-container matColumnDef="externalId">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> External Id </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>External Id</th>
         <td mat-cell *matCellDef="let row">
-          <mifosx-external-identifier display="left" externalId="{{row.externalId}}"></mifosx-external-identifier>
+          <mifosx-external-identifier display="left" externalId="{{ row.externalId }}"></mifosx-external-identifier>
         </td>
       </ng-container>
 
       <!-- Status Column -->
       <ng-container matColumnDef="status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <th mat-header-cell *matHeaderCellDef>Status</th>
         <td mat-cell *matCellDef="let row">
           <div [ngClass]="row.status.code | statusLookup">
             <fa-icon icon="stop"></fa-icon>
@@ -59,17 +69,21 @@
       </ng-container>
 
       <ng-container matColumnDef="officeName">
-        <th mat-header-cell *matHeaderCellDef> Office Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.officeName}} </td>
+        <th mat-header-cell *matHeaderCellDef>Office Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.officeName }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="select-row">
-      </tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" class="select-row"></tr>
     </table>
 
-    <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 50, 100]" [length]="totalRows" (page)="pageChanged($event)"
-      showFirstLastButtons></mat-paginator>
+    <mat-paginator
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 50, 100]"
+      [length]="totalRows"
+      (page)="pageChanged($event)"
+      showFirstLastButtons
+    ></mat-paginator>
   </div>
 
   <div class="alert" [hidden]="!notExistsClientsToFilter">
@@ -78,4 +92,4 @@
       No client was found
     </div>
   </div>
-</mat-card>
+</div>
