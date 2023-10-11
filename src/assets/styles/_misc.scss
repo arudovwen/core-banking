@@ -1,4 +1,4 @@
-@import 'colours';
+@import "colours";
 
 html,
 body {
@@ -30,10 +30,10 @@ div {
 }
 
 .alert {
-  background-color: #E8F4FD;
+  background-color: #e8f4fd;
   padding: 6px 16px;
   font-size: 0.875rem;
-    font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   line-height: 1.43;
   border-radius: 4px;
@@ -45,7 +45,7 @@ div {
     font-size: 18px;
   }
   .alert-check {
-    color:#359FF4;
+    color: #359ff4;
     margin-right: 2px;
     font-size: 1.4rem;
   }
@@ -55,11 +55,38 @@ div {
   font-size: 13px;
   white-space: pre-wrap;
   color: #163300 !important;
-  background-color: rgba(#9FE870, .7);
-  border: 1px solid darken(#9FE870, 20%);
+  background-color: rgba(#9fe870, 0.7);
+  border: 1px solid darken(#9fe870, 20%);
   max-width: 400px !important;
   white-space: pre-line !important;
- }
- .app-sidenav .mat-list-base .mat-list-item .mat-list-item-content{
+}
+.app-sidenav .mat-list-base .mat-list-item .mat-list-item-content {
   padding: 0 !important;
+}
+.mat-header-cell {
+  color: #0e0f0c;
+  font-size: 12px;
+  font-weight: 500;
+}
+.mat-table,
+.mat-checkbox {
+  font-family: "Inter", sans-serif;
+  color: #0e0f0c;
+}
+
+.mat-menu-panel {
+  min-width: 180px;
+  max-width: 300px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100vh - 48px);
+  outline: 0;
+  min-height: 64px;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow:
+    0px 1px 5px 0px rgba(0, 0, 0, 0.15),
+    -1px 0px 20px 0px rgba(23, 24, 24, 0.05);
 }
