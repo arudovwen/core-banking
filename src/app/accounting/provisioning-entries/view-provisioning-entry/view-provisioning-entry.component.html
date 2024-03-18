@@ -48,17 +48,17 @@
 <!-- Search -->
 <div class="container m-t-20" fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
-  <mat-form-field fxFlex="31%">
+   <mat-form-field appearance="outline"  fxFlex="31%">
     <mat-label>{{"labels.inputs.Office Name" |translate}}</mat-label>
     <input matInput [formControl]="officeName" [matAutocomplete]="officeNameAutocomplete">
   </mat-form-field>
 
-  <mat-form-field fxFlex="31%">
+   <mat-form-field appearance="outline"  fxFlex="31%">
     <mat-label>{{"labels.inputs.Loan Product" |translate}}</mat-label>
     <input matInput [formControl]="loanProduct" [matAutocomplete]="loanProductAutocomplete">
   </mat-form-field>
 
-  <mat-form-field fxFlex="31%">
+   <mat-form-field appearance="outline"  fxFlex="31%">
     <mat-label>{{"labels.inputs.Provisioning Category" |translate}}</mat-label>
     <input matInput [formControl]="provisioningCategory" [matAutocomplete]="provisioningCategoryAutocomplete">
   </mat-form-field>

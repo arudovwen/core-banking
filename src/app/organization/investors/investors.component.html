@@ -2,12 +2,12 @@
 
   <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
-    <mat-form-field fxFlex="18%">
+     <mat-form-field appearance="outline"  fxFlex="18%">
       <mat-label>Search by Text</mat-label>
       <input matInput [formControl]="searchText">
     </mat-form-field>
 
-    <mat-form-field fxFlex="18%" (click)="effectiveFromDatePicker.open()">
+     <mat-form-field appearance="outline"  fxFlex="18%" (click)="effectiveFromDatePicker.open()">
       <mat-label>Effective Date From</mat-label>
       <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="effectiveFromDatePicker"
         [formControl]="effectiveFromDate">
@@ -15,7 +15,7 @@
       <mat-datepicker #effectiveFromDatePicker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field fxFlex="18%" (click)="effectiveToDatePicker.open()">
+     <mat-form-field appearance="outline"  fxFlex="18%" (click)="effectiveToDatePicker.open()">
       <mat-label>Effective Date To</mat-label>
       <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="effectiveToDatePicker"
         [formControl]="effectiveToDate">
@@ -23,7 +23,7 @@
       <mat-datepicker #effectiveToDatePicker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field fxFlex="18%" (click)="settlementFromDatePicker.open()">
+     <mat-form-field appearance="outline"  fxFlex="18%" (click)="settlementFromDatePicker.open()">
       <mat-label>Settlement Date From</mat-label>
       <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="settlementFromDatePicker"
         [formControl]="settlementFromDate">
@@ -31,7 +31,7 @@
       <mat-datepicker #settlementFromDatePicker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field fxFlex="18%" (click)="settlementToDatePicker.open()">
+     <mat-form-field appearance="outline"  fxFlex="18%" (click)="settlementToDatePicker.open()">
       <mat-label>Settlement Date To</mat-label>
       <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="settlementToDatePicker"
         [formControl]="settlementToDate">

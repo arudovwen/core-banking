@@ -8,7 +8,7 @@
 
         <div fxLayout="column">
 
-          <mat-form-field (click)="settlementDatePicker.open()">
+           <mat-form-field appearance="outline"  (click)="settlementDatePicker.open()">
             <mat-label>Settlement Date</mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="settlementDatePicker" required
               formControlName="settlementDate">
@@ -19,7 +19,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field *ngIf="!isBuyBack()">
+           <mat-form-field appearance="outline"  *ngIf="!isBuyBack()">
             <mat-label>Purchase Price Ratio</mat-label>
             <input type="number" matInput required formControlName="purchasePriceRatio">
             <mat-error *ngIf="saleLoanForm.controls.purchasePriceRatio.hasError('required')">
@@ -27,7 +27,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field *ngIf="!isBuyBack()">
+           <mat-form-field appearance="outline"  *ngIf="!isBuyBack()">
             <mat-label>Owner External Id</mat-label>
             <input matInput formControlName="ownerExternalId">
             <mat-error *ngIf="saleLoanForm.controls.ownerExternalId.hasError('required')">
@@ -35,7 +35,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field>
+           <mat-form-field appearance="outline" >
             <mat-label>Transfer External Id</mat-label>
             <input matInput formControlName="transferExternalId">
           </mat-form-field>

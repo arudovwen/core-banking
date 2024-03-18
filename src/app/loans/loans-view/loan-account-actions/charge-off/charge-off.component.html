@@ -8,7 +8,7 @@
 
         <div fxLayout="column">
 
-          <mat-form-field (click)="transactionDatePicker.open()">
+           <mat-form-field appearance="outline"  (click)="transactionDatePicker.open()">
             <mat-label>Transaction Date</mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="transactionDatePicker" required
               formControlName="transactionDate">
@@ -19,7 +19,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field>
+           <mat-form-field appearance="outline" >
             <mat-label>Reason for Charge-Off</mat-label>
             <mat-select formControlName="chargeOffReasonId">
               <mat-option *ngFor="let chargeOffReason of chargeOffReasonOptions" [value]="chargeOffReason.id">
@@ -31,12 +31,12 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field>
+           <mat-form-field appearance="outline" >
             <mat-label>External Id</mat-label>
             <input matInput formControlName="externalId">
           </mat-form-field>
 
-          <mat-form-field>
+           <mat-form-field appearance="outline" >
             <mat-label>Note</mat-label>
             <textarea matInput formControlName="note" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
           </mat-form-field>

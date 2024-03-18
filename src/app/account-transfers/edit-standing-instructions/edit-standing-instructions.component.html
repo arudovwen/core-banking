@@ -8,27 +8,27 @@
 
         <div fxLayout="row wrap" fxLayoutGap="2%" fxLayout.lt-md="column">
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{ "labels.inputs.name" | translate}}</mat-label>
             <input matInput formControlName="name">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.Applicant" | translate}}</mat-label>
             <input matInput formControlName="applicant">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{ "labels.inputs.Type" | translate}}</mat-label>
             <input matInput formControlName="type">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.From Account Type"| translate}}</mat-label>
             <input matInput formControlName="fromAccountType">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{ "labels.inputs.Priority"| translate}}</mat-label>
             <mat-select required formControlName="priority">
               <mat-option *ngFor="let priorityType of priorityTypeData" [value]="priorityType.id">
@@ -40,7 +40,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{ "labels.inputs.Status" | translate}}</mat-label>
             <mat-select required formControlName="status">
               <mat-option *ngFor="let statusType of statusTypeData" [value]="statusType.id">
@@ -52,37 +52,37 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.From Account" | translate}}</mat-label>
             <input matInput formControlName="fromAccount">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.Destination"| translate}}</mat-label>
             <input matInput formControlName="destination">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.To Office"| translate}}</mat-label>
             <input matInput formControlName="toOffice">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{ "labels.inputs.Beneficiary"| translate}}</mat-label>
             <input matInput formControlName="toClientId">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.To Account Type" | translate}}</mat-label>
             <input matInput formControlName="toAccountType">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.To Account" | translate}}</mat-label>
             <input matInput formControlName="toAccount">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{ "labels.inputs.Standing Instruction Type" | translate}}</mat-label>
             <mat-select formControlName="instructionType">
               <mat-option *ngFor="let instructionsType of instructionTypeData"
@@ -92,12 +92,12 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.Amount" | translate}}</mat-label>
             <input matInput formControlName="amount">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%" (click)="validFromDatePicker.open()">
+           <mat-form-field appearance="outline"  fxFlex="48%" (click)="validFromDatePicker.open()">
             <mat-label>{{"labels.inputs.Validity from" | translate}}</mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="validFromDatePicker" required
               formControlName="validFrom">
@@ -108,7 +108,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%" (click)="validTillDatePicker.open()">
+           <mat-form-field appearance="outline"  fxFlex="48%" (click)="validTillDatePicker.open()">
             <mat-label>{{"labels.inputs.Validity To" | translate}}</mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="validTillDatePicker" required
               formControlName="validTill">
@@ -119,7 +119,7 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.Recurrence Type" | translate}}</mat-label>
             <mat-select required formControlName="recurrenceType">
               <mat-option *ngFor="let recurrenceType of recurrenceTypeData" [value]="recurrenceType.id">
@@ -131,12 +131,12 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.Interval" | translate}}</mat-label>
             <input matInput formControlName="recurrenceInterval">
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%">
+           <mat-form-field appearance="outline"  fxFlex="48%">
             <mat-label>{{"labels.inputs.Recurrence Frequency" | translate}}</mat-label>
             <mat-select formControlName="recurrenceFrequency">
               <mat-option *ngFor="let recurrenceFrequencyType of recurrenceFrequencyTypeData"
@@ -146,7 +146,7 @@
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field fxFlex="48%" (click)="recurrenceOnMonthDayDatePicker.open()">
+           <mat-form-field appearance="outline"  fxFlex="48%" (click)="recurrenceOnMonthDayDatePicker.open()">
             <mat-label>{{"labels.inputs.On Month Day" | translate}}</mat-label>
             <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="recurrenceOnMonthDayDatePicker"
               formControlName="recurrenceOnMonthDay">

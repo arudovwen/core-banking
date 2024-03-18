@@ -4,7 +4,7 @@
 
     <h4 fxFlex="98%" class="mat-h4">Principal <i class="fas fa-question" matTooltip="These fields are used to define the minimum, default, and maximum principal allowed for the loan product."></i></h4>
 
-    <mat-form-field fxFlex="31%">
+     <mat-form-field appearance="outline"  fxFlex="31%">
       <mat-label>Minimum</mat-label>
       <input type="number" matInput formControlName="minPrincipal" [min]="0">
       <mat-error>
@@ -12,7 +12,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="31%">
+     <mat-form-field appearance="outline"  fxFlex="31%">
       <mat-label>Default</mat-label>
       <input type="number" matInput formControlName="principal" required>
       <mat-error>
@@ -20,7 +20,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="31%">
+     <mat-form-field appearance="outline"  fxFlex="31%">
       <mat-label>Maximum</mat-label>
       <input type="number" matInput formControlName="maxPrincipal" [min]="0">
       <mat-error>
@@ -33,7 +33,7 @@
     </mat-checkbox>
 
     <div fxFlex="98%" fxLayoutGap="2%" fxLayout="row wrap" fxLayout.lt-md="column">
-      <mat-form-field fxFlex="32%" *ngIf="loanProductTermsForm.value.allowApprovedDisbursedAmountsOverApplied">
+       <mat-form-field appearance="outline"  fxFlex="32%" *ngIf="loanProductTermsForm.value.allowApprovedDisbursedAmountsOverApplied">
         <mat-label>Over Amount Calculation Type</mat-label>
         <mat-select formControlName="overAppliedCalculationType" required>
           <mat-option *ngFor="let overAppliedCalculationType of overAppliedCalculationTypeData" [value]="overAppliedCalculationType.id">
@@ -42,13 +42,13 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field fxFlex="32%" *ngIf="loanProductTermsForm.value.allowApprovedDisbursedAmountsOverApplied">
+       <mat-form-field appearance="outline"  fxFlex="32%" *ngIf="loanProductTermsForm.value.allowApprovedDisbursedAmountsOverApplied">
         <mat-label>Over Amount</mat-label>
         <input type="number" matInput formControlName="overAppliedNumber" required>
       </mat-form-field>
     </div>
 
-    <mat-form-field fxFlex="31%">
+     <mat-form-field appearance="outline"  fxFlex="31%">
       <mat-label>Installment day calculation from <i class="fas fa-question" matTooltip="Repayment schedule will start the installment dates from the submitted date or the disbursement date"></i></mat-label>
       <mat-select formControlName="repaymentStartDateType" required>
         <mat-option *ngFor="let repaymentStartDateType of repaymentStartDateTypeOptions" [value]="repaymentStartDateType.id">
@@ -59,7 +59,7 @@
 
     <h4 fxFlex="98%" class="mat-h4">Number of repayments <i class="fas fa-question" matTooltip="These fields are used to define the minimum, default, and maximum number of repayments allowed for the loan product."></i></h4>
 
-    <mat-form-field fxFlex="31%">
+     <mat-form-field appearance="outline"  fxFlex="31%">
       <mat-label>Minimum</mat-label>
       <input type="number" matInput formControlName="minNumberOfRepayments" [min]="1">
       <mat-error>
@@ -67,7 +67,7 @@
         </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="31%">
+     <mat-form-field appearance="outline"  fxFlex="31%">
       <mat-label>Default</mat-label>
       <input type="number" matInput formControlName="numberOfRepayments" required>
       <mat-error>
@@ -75,7 +75,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="31%">
+     <mat-form-field appearance="outline"  fxFlex="31%">
       <mat-label>Maximum</mat-label>
       <input type="number" matInput formControlName="maxNumberOfRepayments" [min]="0">
       <mat-error>
@@ -95,7 +95,7 @@
 
       <h4 fxFlex="98%" class="mat-h4">Nominal interest rate <i class="fas fa-question" matTooltip="These fields are used to define the minimum, default, maximum, and period for the nominal interest rate allowed for the loan product. The minimum, default, and maximum nominal interest rates are expressed as percentages."></i></h4>
 
-      <mat-form-field fxFlex="23%">
+       <mat-form-field appearance="outline"  fxFlex="23%">
         <mat-label>Minimum</mat-label>
         <input type="number" matInput formControlName="minInterestRatePerPeriod" [min]="0">
         <mat-error>
@@ -103,7 +103,7 @@
           </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="23%">
+       <mat-form-field appearance="outline"  fxFlex="23%">
         <mat-label>Default</mat-label>
         <input type="number" matInput formControlName="interestRatePerPeriod" required>
         <mat-error>
@@ -111,7 +111,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="23%">
+       <mat-form-field appearance="outline"  fxFlex="23%">
         <mat-label>Maximum</mat-label>
         <input type="number" matInput formControlName="maxInterestRatePerPeriod" [min]="0">
         <mat-error>
@@ -119,7 +119,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="23%">
+       <mat-form-field appearance="outline"  fxFlex="23%">
         <mat-label>Frequency</mat-label>
         <mat-select formControlName="interestRateFrequencyType" required>
           <mat-option *ngFor="let interestRateFrequencyType of interestRateFrequencyTypeData" [value]="interestRateFrequencyType.id">
@@ -137,7 +137,7 @@
 
       <h4 fxFlex="98%" class="mat-h4">Floating interest rate <i class="fas fa-question" matTooltip="These fields are used to define the minimum, default, maximum, and period for the floating interest rate allowed for the loan product. The minimum, default, and maximum floating interest rates are expressed as percentages."></i></h4>
 
-      <mat-form-field fxFlex="31%">
+       <mat-form-field appearance="outline"  fxFlex="31%">
         <mat-label>Floating Rate</mat-label>
         <mat-select formControlName="floatingRatesId" required>
           <mat-option *ngFor="let floatingRate of floatingRateData" [value]="floatingRate.id">
@@ -149,7 +149,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="31%">
+       <mat-form-field appearance="outline"  fxFlex="31%">
         <mat-label>Differential Rate</mat-label>
         <input type="number" matInput formControlName="interestRateDifferential" required>
         <mat-error>
@@ -161,7 +161,7 @@
         Is Floating calculation allowed?
       </mat-checkbox>
 
-      <mat-form-field fxFlex="31%">
+       <mat-form-field appearance="outline"  fxFlex="31%">
         <mat-label>Minimum</mat-label>
         <input type="number" matInput formControlName="minDifferentialLendingRate" [min]="0" required>
         <mat-error>
@@ -169,7 +169,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="31%">
+       <mat-form-field appearance="outline"  fxFlex="31%">
         <mat-label>Default</mat-label>
         <input type="number" matInput formControlName="defaultDifferentialLendingRate" required>
         <mat-error>
@@ -177,7 +177,7 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field fxFlex="31%">
+       <mat-form-field appearance="outline"  fxFlex="31%">
         <mat-label>Maximum</mat-label>
         <input type="number" matInput formControlName="maxDifferentialLendingRate" required>
         <mat-error>
@@ -392,7 +392,7 @@
 
     <h4 fxFlex="98%" class="mat-h4">Repaid every <i class="fas fa-question" matTooltip="These fields are input to calculating the repayment schedule for a loan account and are used to determine when payments are due."></i></h4>
 
-    <mat-form-field fxFlex="48%">
+     <mat-form-field appearance="outline"  fxFlex="48%">
       <mat-label>Frequency</mat-label>
       <input type="number" matInput formControlName="repaymentEvery" required>
       <mat-error>
@@ -400,7 +400,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="48%">
+     <mat-form-field appearance="outline"  fxFlex="48%">
       <mat-label>Type</mat-label>
       <mat-select formControlName="repaymentFrequencyType" required>
         <mat-option *ngFor="let repaymentFrequencyType of repaymentFrequencyTypeData" [value]="repaymentFrequencyType.id">
@@ -412,7 +412,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFlex="48%">
+     <mat-form-field appearance="outline"  fxFlex="48%">
       <mat-label>Minimum days between disbursal and first repayment date</mat-label>
       <input type="number" matInput formControlName="minimumDaysBetweenDisbursalAndFirstRepayment">
     </mat-form-field>
