@@ -28,7 +28,7 @@
     </mat-form-field>
   </div>
 
-  <div #accountsTable class="mat-elevation-z8">
+  <div #accountsTable class="rounded-lg border border-[#DFE5EC] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] overflow-hidden">
 
     <table mat-table [dataSource]="tableDataSource" matSort>
 
@@ -96,7 +96,7 @@
 
   <div fxLayout="row" fxLayoutGap="4%" fxLayout.lt-md="column">
     
-    <div class="mat-elevation-z8" fxFlex>
+    <div class="rounded-lg border border-[#DFE5EC] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] overflow-hidden" fxFlex>
 
       <mat-tree [dataSource]="nestedTreeDataSource" [treeControl]="nestedTreeControl" class="gl-account-tree">
 
