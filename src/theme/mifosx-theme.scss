@@ -14,6 +14,7 @@
 @import "../app/deposits/fixed-deposits/fixed-deposit-account-view/fixed-deposit-account-view.component-theme.scss";
 @import "../app/deposits/recurring-deposits/recurring-deposits-account-view/recurring-deposits-account-view.component-theme.scss";
 
+@import "./tailwind.scss";
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
