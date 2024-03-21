@@ -1,0 +1,19 @@
+.container {
+    .list-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .mat-list-text {
+      padding-left: 0px;
+    }
+    h4 {
+      color: #454745;
+      font-weight: 500;
+    }
+    p {
+      color: #68778d;
+      max-width: 250px;
+    }
+  }
+  
