@@ -90,3 +90,30 @@ div {
     0px 1px 5px 0px rgba(0, 0, 0, 0.15),
     -1px 0px 20px 0px rgba(23, 24, 24, 0.05);
 }
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}
+
+.shadow-none{
+  box-shadow: none;
+  border: 1px solid #E5E7EC;
+}
+
+.shadow-none {
+  box-shadow: none;
+  border: 1px solid #e5e7ec;
+}
+.accordion_class {
+  display: grid;
+  row-gap: 12px;
+}
+.accordion_class__tab {
+  box-shadow: none !important;
+  border: 1px solid #e5e7ec;
+  border-radius: 8px !important;
+}
+
+.mat-expansion-panel-header-title{
+  font-weight: 500;
+}

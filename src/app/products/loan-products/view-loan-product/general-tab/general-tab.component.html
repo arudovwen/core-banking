@@ -334,7 +334,7 @@
   <div fxFlexFill *ngIf="loanProduct.paymentAllocation?.length">
     <span fxFlex="40%">Advanced Payment Allocation Transactions:</span>
     <span fxFlex="60%">
-      <mat-accordion>
+       <mat-accordion class="accordion_class">
         <mifosx-view-advance-paymeny-allocation *ngFor="let paymentAllocation of loanProduct.paymentAllocation"
           [paymentAllocation]="paymentAllocation">
         </mifosx-view-advance-paymeny-allocation>

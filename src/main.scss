@@ -2,14 +2,35 @@
  * Entry point of global application style.
  * Component-specific style should not go here and be included directly as part of the components.
  */
- @tailwind base;
- @tailwind components;
- @tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
- 
 // Import Default Theme for MifosX
 @import "theme/mifosx-theme";
 
 // Global Imports
 /* You can add global styles to this file, and also import other style files */
 @import "assets/styles/helper";
+
+.shadow-none {
+  box-shadow: none;
+  border: 1px solid #e5e7ec;
+}
+.accordion_class {
+  display: grid;
+  row-gap: 12px;
+}
+.accordion_class__tab {
+  box-shadow: none;
+  border: 1px solid #e5e7ec;
+  border-radius: 8px !important;
+}
+button {
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+input:focus {
+  box-shadow: none !important;
+  outline: none;
+}
