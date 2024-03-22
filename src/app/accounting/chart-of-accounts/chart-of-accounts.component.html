@@ -1,31 +1,33 @@
-<div class="container m-b-20" fxLayout="row" fxLayoutAlign="end" fxLayoutGap="20px">
-  <div #buttonTreeView>
-    <mat-button-toggle-group [formControl]="viewGroup">
-      <mat-button-toggle value="listView">
-        <fa-icon icon="list"></fa-icon>
-      </mat-button-toggle>
-      <mat-button-toggle value="treeView">
-        <fa-icon icon="sitemap"></fa-icon>
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </div>
-  <div #buttonAddAccount>
-    <button mat-raised-button color="primary" [routerLink]="['gl-accounts/create']" *mifosxHasPermission="'CREATE_GLACCOUNT'">
-      <fa-icon icon="plus" class="m-r-10"></fa-icon>
-      {{"labels.buttons.Add Account" |translate}}
-    </button>
-  </div>
-</div>
 
 <!-- List View -->
 
 <div class="container" [hidden]="viewGroup.value !== 'listView'">
 
-  <div #filter fxLayout="row" fxLayoutGap="20px">
-     <mat-form-field appearance="outline"  fxFlex>
-      <mat-label>{{ 'labels.inputs.Filter' | translate }}</mat-label>
-      <input matInput (keyup)="applyFilter($event.target.value)">
-    </mat-form-field>
+
+  <div fxLayout="row" fxLayoutAlign="space-between" class="mb-5 gap-x-5">
+    <div #filter class="search-box">
+      <input
+        placeholder="Filter"
+        (keyup)="applyFilter($event.target.value)"
+        class="border border-[#DFE5EC] h-11 pl-[15px] min-w-[250px] flex-1 max-w-[400px] w-full rounded-lg focus:ring-0 focus:outline-none focus:border-gray-200 text-sm focus-within:outline-none placeholder:text-[#BEBEBE] focus:shadow-none"
+      />
+    </div>
+    <div #buttonTreeView>
+      <mat-button-toggle-group [formControl]="viewGroup">
+        <mat-button-toggle value="listView">
+          <fa-icon icon="list"></fa-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="treeView">
+          <fa-icon icon="sitemap"></fa-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div #buttonAddAccount>
+      <button mat-raised-button color="primary" [routerLink]="['gl-accounts/create']" *mifosxHasPermission="'CREATE_GLACCOUNT'">
+        <fa-icon icon="plus" class="m-r-10"></fa-icon>
+        {{"labels.buttons.Add Account" |translate}}
+      </button>
+    </div>
   </div>
 
   <div #accountsTable class="rounded-lg border border-[#DFE5EC] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] overflow-hidden">
