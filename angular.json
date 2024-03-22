@@ -41,7 +41,9 @@
                 "bundleName": "mifosx-theme"
               }
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/apexcharts/dist/apexcharts.min.js"
+            ],
             "allowedCommonJsDependencies": [
               "lodash",
               "@ckeditor/ckeditor5-build-classic",
