@@ -1,10 +1,6 @@
 <div class="container">
-
-  <mat-card class="card" fxLayout="column" fxLayoutGap="40px">
-
-    <div fxLayout="row" fxLayoutGap="40px">
-
-      <mat-card class="recent-activities">
+  <div class="m-b-40">
+    <!-- <mat-card class="recent-activities">
 
         <mat-card-header class="header">
           <h3><fa-icon icon="bolt"></fa-icon>
@@ -33,20 +29,13 @@
           </mat-action-list>
         </mat-card-content>
         
-      </mat-card>
+      </mat-card> -->
 
-      <mifosx-amount-disbursed-pie></mifosx-amount-disbursed-pie>
+    <mifosx-client-trends-bar></mifosx-client-trends-bar>
+  </div>
 
-    </div>
-
-    <div fxLayout="row" fxLayoutGap="40px">
-
-      <mifosx-client-trends-bar></mifosx-client-trends-bar>
-
-      <mifosx-amount-collected-pie></mifosx-amount-collected-pie>
-
-    </div>
-    
-  </mat-card>
-
+  <div fxLayout="row" fxLayoutGap="44px">
+    <mifosx-amount-disbursed-pie class="w-full"></mifosx-amount-disbursed-pie>
+    <mifosx-amount-collected-pie class="w-full"></mifosx-amount-collected-pie>
+  </div>
 </div>

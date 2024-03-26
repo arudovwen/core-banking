@@ -1,6 +1,6 @@
 <div class="tab-container mat-typography" *ngIf="loans && loans.length > 0">
 
-  <div fxLayout="row" fxLayoutAlign="start center">
+  <div fxLayout="row" fxLayoutAlign="start center" class="mb-5">
     <div class="search-box" fxFlex="40%">
        <mat-form-field appearance="outline"  fxFlex="90%">
         <input matInput placeholder="Filter by name" (keyup)="applyFilter($event.target.value)">

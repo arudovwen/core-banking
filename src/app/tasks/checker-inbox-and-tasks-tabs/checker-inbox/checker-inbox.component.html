@@ -1,6 +1,6 @@
 <div class="tab-container mat-typography" *ngIf="checkerData">
 
-  <div fxLayout="row" fxLayoutAlign="start center">
+  <div fxLayout="row" fxLayoutAlign="start center" class="mb-5">
     <div class="search-box" fxFlex="40%">
        <mat-form-field appearance="outline"  fxFlex="90%">
         <input matInput placeholder="Search by user" (keyup)="applyFilter($event.target.value)">

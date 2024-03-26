@@ -218,19 +218,23 @@ export class ClientTrendsBarComponent implements OnInit {
   setChart(labels: any[], clientCounts: number[], loanCounts: number[]) {
     if (!this.chart) {
       this.chart = new Chart('client-trends-bar', {
-        type: 'bar',
+        type: 'line',
         data: {
           labels: labels,
           datasets: [
             {
               label: 'New Clients',
-              backgroundColor: 'dodgerblue',
-              data: clientCounts
+              backgroundColor: '#16320180',
+              data: clientCounts,
+              borderColor:"#163201",
+              fill: 'origin'
             },
             {
               label: 'Loans Disbursed',
-              backgroundColor: 'green',
-              data: loanCounts
+              backgroundColor: '#f7ec7680',
+              borderColor:"#f7ec76",
+              data: loanCounts,
+              fill: 'smooth'
             }
           ]
         },
