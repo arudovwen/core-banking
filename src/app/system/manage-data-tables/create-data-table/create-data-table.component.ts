@@ -1,38 +1,37 @@
 /** Angular Imports */
-import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit  } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, TemplateRef, ElementRef, ViewChild, AfterViewInit } from "@angular/core";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { MatTableDataSource } from "@angular/material/table";
 
 /** Custom Services */
-import { SystemService } from '../../system.service';
-import { PopoverService } from '../../../configuration-wizard/popover/popover.service';
-import { ConfigurationWizardService } from '../../../configuration-wizard/configuration-wizard.service';
+import { SystemService } from "../../system.service";
+import { PopoverService } from "../../../configuration-wizard/popover/popover.service";
+import { ConfigurationWizardService } from "../../../configuration-wizard/configuration-wizard.service";
 
 /** Data Imports */
-import { appTableData, entitySubTypeData, savingsSubTypeData } from '../app-table-data';
+import { appTableData, entitySubTypeData, savingsSubTypeData } from "../app-table-data";
 
 /** Custom Components */
-import { ColumnDialogComponent } from '../column-dialog/column-dialog.component';
-import { DeleteDialogComponent } from 'app/shared/delete-dialog/delete-dialog.component';
+import { ColumnDialogComponent } from "../column-dialog/column-dialog.component";
+import { DeleteDialogComponent } from "app/shared/delete-dialog/delete-dialog.component";
 
 /** Custom Dialog Component */
-import { ContinueSetupDialogComponent } from '../../../configuration-wizard/continue-setup-dialog/continue-setup-dialog.component';
-import { DatatableColumn } from '../datatable-column.model';
+import { ContinueSetupDialogComponent } from "../../../configuration-wizard/continue-setup-dialog/continue-setup-dialog.component";
+import { DatatableColumn } from "../datatable-column.model";
 
 /**
  * Create Data Table Component.
  */
 @Component({
-  selector: 'mifosx-create-data-table',
-  templateUrl: './create-data-table.component.html',
-  styleUrls: ['./create-data-table.component.scss']
+  selector: "mifosx-create-data-table",
+  templateUrl: "./create-data-table.component.html",
+  styleUrls: ["./create-data-table.component.scss"],
 })
 export class CreateDataTableComponent implements OnInit, AfterViewInit {
-
   /** Data Table Form */
   dataTableForm: UntypedFormGroup;
   /** Application Table Data */
@@ -45,18 +44,18 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
   columnData: DatatableColumn[] = [];
   /** Data passed to dialog. */
   dataForDialog: DatatableColumn = {
-      columnName: undefined,
-      columnDisplayType: undefined,
-      isColumnNullable: undefined,
-      columnLength: undefined,
-      columnCode: undefined,
-      columnCodes: undefined,
-      type: undefined,
-      isColumnUnique: undefined,
-      isColumnIndexed: undefined
-    };
+    columnName: undefined,
+    columnDisplayType: undefined,
+    isColumnNullable: undefined,
+    columnLength: undefined,
+    columnCode: undefined,
+    columnCodes: undefined,
+    type: undefined,
+    isColumnUnique: undefined,
+    isColumnIndexed: undefined,
+  };
   /** Columns to be displayed in columns table. */
-  displayedColumns: string[] = ['name', 'type', 'length', 'code', 'mandatory', 'unique', 'indexed', 'actions'];
+  displayedColumns: string[] = ["name", "type", "length", "code", "mandatory", "unique", "indexed", "actions"];
   /** Data source for columns table. */
   dataSource: MatTableDataSource<any>;
   /** Paginator for columns table. */
@@ -65,9 +64,9 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   /* Reference of create datatables form */
-  @ViewChild('dataTableFormRef') dataTableFormRef: ElementRef<any>;
+  @ViewChild("dataTableFormRef") dataTableFormRef: ElementRef<any>;
   /* Template for popover on create datatables form */
-  @ViewChild('templateDataTableFormRef') templateDataTableFormRef: TemplateRef<any>;
+  @ViewChild("templateDataTableFormRef") templateDataTableFormRef: TemplateRef<any>;
 
   /**
    * Retrieves the column codes data from `resolve`.
@@ -79,13 +78,15 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
    * @param {ConfigurationWizardService} configurationWizardService ConfigurationWizard Service.
    * @param {PopoverService} popoverService PopoverService.
    */
-  constructor(private formBuilder: UntypedFormBuilder,
-              private systemService: SystemService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private dialog: MatDialog,
-              private configurationWizardService: ConfigurationWizardService,
-              private popoverService: PopoverService) {
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private systemService: SystemService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private dialog: MatDialog,
+    private configurationWizardService: ConfigurationWizardService,
+    private popoverService: PopoverService,
+  ) {
     this.route.data.subscribe((data: { columnCodes: any }) => {
       this.dataForDialog.columnCodes = data.columnCodes;
     });
@@ -98,8 +99,8 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
     this.createDataTableForm();
     this.setColumns();
     this.dataTableForm.controls.apptableName.valueChanges.subscribe((value: any) => {
-      this.showEntitySubType = (value === 'm_client');
-      this.showSavingsSubType = (value === 'm_savings_product');
+      this.showEntitySubType = value === "m_client";
+      this.showSavingsSubType = value === "m_savings_product";
     });
   }
 
@@ -117,10 +118,10 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
    */
   createDataTableForm() {
     this.dataTableForm = this.formBuilder.group({
-      'datatableName': ['', Validators.required],
-      'apptableName': ['', Validators.required],
-      'multiRow': [false],
-      'entitySubType': ['']
+      datatableName: ["", Validators.required],
+      apptableName: ["", Validators.required],
+      multiRow: [false],
+      entitySubType: [""],
     });
   }
 
@@ -135,14 +136,14 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
     this.dataForDialog.columnCode = undefined;
     this.dataForDialog.isColumnUnique = undefined;
     this.dataForDialog.isColumnIndexed = undefined;
-    this.dataForDialog.type = 'new';
+    this.dataForDialog.type = "new";
     const addColumnDialogRef = this.dialog.open(ColumnDialogComponent, {
       data: this.dataForDialog,
-      height: '450px',
-      width: '400px'
+      height: "450px",
+      width: "400px",
     });
     addColumnDialogRef.afterClosed().subscribe((response: any) => {
-      if (response !== '') {
+      if (response !== "") {
         this.columnData.push({
           columnName: response.name,
           columnDisplayType: response.type,
@@ -151,7 +152,7 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
           isColumnIndexed: response.indexed,
           columnLength: response.length,
           columnCode: response.code,
-          type: 'new'
+          type: "new",
         });
         this.dataSource.connect().next(this.columnData);
       }
@@ -163,6 +164,7 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
    * @param {any} column Column.
    */
   editColumn(column: any) {
+   
     this.dataForDialog.columnName = column.columnName;
     this.dataForDialog.columnDisplayType = column.columnDisplayType;
     this.dataForDialog.isColumnNullable = !column.isColumnNullable;
@@ -173,22 +175,21 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
     this.dataForDialog.type = column.type;
     const editColumnDialogRef = this.dialog.open(ColumnDialogComponent, {
       data: this.dataForDialog,
-      height: '450px',
-      width: '400px'
+      height: "450px",
+      width: "400px",
     });
     editColumnDialogRef.afterClosed().subscribe((response: any) => {
-    
-      if (response !== '') {
-       
-        this.columnData[this.columnData.findIndex(newColumn => newColumn.columnName === column.columnName)] = {
+
+      if (response !== "") {
+        this.columnData[this.columnData.findIndex((newColumn) => newColumn.columnName === column.columnName)] = {
           columnName: response.name || column.columnName,
-          columnDisplayType: response.type ||  column.columnDisplayType,
-          isColumnNullable: !response.mandatory || !column.isColumnNullable,
+          columnDisplayType: response.type || column.columnDisplayType,
+          isColumnNullable: !response?.mandatory || !column.isColumnNullable,
           isColumnUnique: response.unique || column.isColumnUnique,
           isColumnIndexed: response.indexed || column.isColumnIndexed,
           columnLength: response.length || column.columnLength,
           columnCode: response.code || column.columnCode,
-          type: 'existing'
+          type: "existing",
         };
         this.dataSource.connect().next(this.columnData);
       }
@@ -201,7 +202,7 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
    */
   deleteColumn(column: any) {
     const deleteColumnDialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: { deleteContext: `column ${column.name}` }
+      data: { deleteContext: `column ${column.name}` },
     });
     deleteColumnDialogRef.afterClosed().subscribe((response: any) => {
       if (response.delete) {
@@ -225,20 +226,20 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
         length: column.columnLength,
         mandatory: !column.isColumnNullable,
         unique: column.isColumnUnique,
-        indexed: column.isColumnIndexed
+        indexed: column.isColumnIndexed,
       });
     });
     this.dataTableForm.value.columns = columns;
     const payload = this.dataTableForm.value;
-    if (this.dataTableForm.value.entitySubType == null || this.dataTableForm.value.entitySubType === '') {
+    if (this.dataTableForm.value.entitySubType == null || this.dataTableForm.value.entitySubType === "") {
       delete payload.entitySubType;
     }
     this.systemService.createDataTable(payload).subscribe((response: any) => {
       if (this.configurationWizardService.showDatatablesForm === true) {
-          this.configurationWizardService.showDatatablesForm = false;
-          this.openDialog();
+        this.configurationWizardService.showDatatablesForm = false;
+        this.openDialog();
       } else {
-        this.router.navigate(['../', response.resourceIdentifier], { relativeTo: this.route });
+        this.router.navigate(["../", response.resourceIdentifier], { relativeTo: this.route });
       }
     });
   }
@@ -250,7 +251,12 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
    * @param position String.
    * @param backdrop Boolean.
    */
-  showPopover(template: TemplateRef<any>, target: HTMLElement | ElementRef<any>, position: string, backdrop: boolean): void {
+  showPopover(
+    template: TemplateRef<any>,
+    target: HTMLElement | ElementRef<any>,
+    position: string,
+    backdrop: boolean,
+  ): void {
     setTimeout(() => this.popoverService.open(template, target, position, backdrop, {}), 200);
   }
 
@@ -260,7 +266,7 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     if (this.configurationWizardService.showDatatablesForm === true) {
       setTimeout(() => {
-          this.showPopover(this.templateDataTableFormRef, this.dataTableFormRef.nativeElement, 'bottom', true);
+        this.showPopover(this.templateDataTableFormRef, this.dataTableFormRef.nativeElement, "bottom", true);
       });
     }
   }
@@ -271,7 +277,7 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
   nextStep() {
     this.configurationWizardService.showDatatablesForm = false;
     this.configurationWizardService.showSystemCodes = true;
-    this.router.navigate(['/system']);
+    this.router.navigate(["/system"]);
   }
 
   /**
@@ -280,7 +286,7 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
   previousStep() {
     this.configurationWizardService.showDatatablesForm = false;
     this.configurationWizardService.showDatatablesList = true;
-    this.router.navigate(['/system/data-tables']);
+    this.router.navigate(["/system/data-tables"]);
   }
 
   /**
@@ -289,23 +295,23 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
   openDialog() {
     const continueSetupDialogRef = this.dialog.open(ContinueSetupDialogComponent, {
       data: {
-        stepName: 'data table'
+        stepName: "data table",
       },
     });
     continueSetupDialogRef.afterClosed().subscribe((response: { step: number }) => {
       if (response.step === 1) {
-          this.configurationWizardService.showDatatablesForm = false;
-          this.router.navigate(['../'], { relativeTo: this.route });
-        } else if (response.step === 2) {
-          this.configurationWizardService.showDatatablesForm = true;
-          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-          this.router.onSameUrlNavigation = 'reload';
-          this.router.navigate(['/organization/data-tables/create']);
-        } else if (response.step === 3) {
-          this.configurationWizardService.showDatatablesForm = false;
-          this.configurationWizardService.showSystemCodes = true;
-          this.router.navigate(['/system']);
-        }
+        this.configurationWizardService.showDatatablesForm = false;
+        this.router.navigate(["../"], { relativeTo: this.route });
+      } else if (response.step === 2) {
+        this.configurationWizardService.showDatatablesForm = true;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = "reload";
+        this.router.navigate(["/organization/data-tables/create"]);
+      } else if (response.step === 3) {
+        this.configurationWizardService.showDatatablesForm = false;
+        this.configurationWizardService.showSystemCodes = true;
+        this.router.navigate(["/system"]);
+      }
     });
   }
 }
