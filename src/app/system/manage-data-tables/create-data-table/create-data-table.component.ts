@@ -184,7 +184,7 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
         this.columnData[this.columnData.findIndex((newColumn) => newColumn.columnName === column.columnName)] = {
           columnName: response.name || column.columnName,
           columnDisplayType: response.type || column.columnDisplayType,
-          isColumnNullable: !response?.mandatory || !column.isColumnNullable,
+          isColumnNullable: response?.mandatory !== undefined ? !response.mandatory : !column.isColumnNullable,
           isColumnUnique: response.unique || column.isColumnUnique,
           isColumnIndexed: response.indexed || column.isColumnIndexed,
           columnLength: response.length || column.columnLength,
