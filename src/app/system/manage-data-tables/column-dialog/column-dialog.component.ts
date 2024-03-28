@@ -99,5 +99,5 @@ export class ColumnDialogComponent implements OnInit {
   submit() {
     this.dialogRef.close(this.columnForm.value);
   }
-
+ 
 }

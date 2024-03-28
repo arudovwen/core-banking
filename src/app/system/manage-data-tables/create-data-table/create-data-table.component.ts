@@ -177,15 +177,17 @@ export class CreateDataTableComponent implements OnInit, AfterViewInit {
       width: '400px'
     });
     editColumnDialogRef.afterClosed().subscribe((response: any) => {
+    
       if (response !== '') {
-        this.columnData[this.columnData.findIndex(newColumn => newColumn.columnName === column.name)] = {
-          columnName: response.name,
-          columnDisplayType: response.type,
-          isColumnNullable: !response.mandatory,
-          isColumnUnique: response.unique,
-          isColumnIndexed: response.indexed,
-          columnLength: response.length,
-          columnCode: response.code,
+       
+        this.columnData[this.columnData.findIndex(newColumn => newColumn.columnName === column.columnName)] = {
+          columnName: response.name || column.columnName,
+          columnDisplayType: response.type ||  column.columnDisplayType,
+          isColumnNullable: !response.mandatory || !column.isColumnNullable,
+          isColumnUnique: response.unique || column.isColumnUnique,
+          isColumnIndexed: response.indexed || column.isColumnIndexed,
+          columnLength: response.length || column.columnLength,
+          columnCode: response.code || column.columnCode,
           type: 'existing'
         };
         this.dataSource.connect().next(this.columnData);
