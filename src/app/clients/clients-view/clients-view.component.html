@@ -1,6 +1,6 @@
-<mat-card class="client-card">
+<mat-card class="client-card rounded-lg border border-[#DFE5EC] shadow-[0px_1px_2px_0px_rgba(16,24,40,0.05)] overflow-hidden">
 
-  <mat-card-header fxLayout="column" class="header">
+  <mat-card-header fxLayout="column" class="header rounded-t-lg">
 
     <mat-card-title-group class="header-title-group">
 
@@ -24,7 +24,7 @@
           </button>
           <br>
         </div>
-        <p (click)="doAction('View Signature')" class="signature">View Signature</p>
+        <button (click)="doAction('View Signature')" class="bg-blue-700 text-white rounded-sm text-xs py-[4px] px-[8px]">View Signature</button>
       </div>
 
       <div class="mat-typography client-card-title">

@@ -2,20 +2,27 @@
   padding: 1%;
   margin: 1%;
 
-  h3{
-    margin:1% auto;
+  h3 {
+    margin: 1% auto;
   }
   .performance-history-container {
-    border: 1px solid;
+    border: 1px solid #f7f8fa;
     padding: 1%;
   }
 
   table {
     width: 100%;
+    border: none;
+    tr.select-row:hover {
+      cursor: pointer;
+    }
+    tr:nth-child(odd).td {
+      color: #0e0f0c;
+    }
     td:hover {
       cursor: pointer;
     }
-    .account-action-button{
+    .account-action-button {
       min-width: 26px;
       padding: 0 6px;
       margin: 4px;
@@ -26,7 +33,6 @@
       cursor: pointer;
     }
   }
-
 }
 
 .heading-content {
