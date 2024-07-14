@@ -1,5 +1,5 @@
 name: Run Azure Login with OIDC
-on: 
+on:
   push:
     branches:
       - ci-deploy
@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: 'Az CLI login'
+
+      - name: "Az CLI login"
         uses: azure/login@v1
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -26,5 +26,5 @@ jobs:
         with:
           appSourcePath: ${{ github.workspace }}
           acrName: bancroappfrontend
-          containerAppName: fineract-cowry-app
+          containerAppName: community-cowry-app
           resourceGroup: cowry-asset-fineract
