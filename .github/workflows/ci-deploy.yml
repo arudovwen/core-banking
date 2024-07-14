@@ -18,7 +18,10 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: 'Run az commands'
-        run: |
-          az account show
-          az group list
+      - name: Build and deploy Container App
+        uses: azure/container-apps-deploy-action@v1
+        with:
+          appSourcePath: ${{ github.workspace }}
+          acrName: bancroappfrontend
+          containerAppName: fineract-cowry-app
+          resourceGroup: cowry-asset-fineract
