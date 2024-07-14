@@ -12,7 +12,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
-    "ignoreDeprecations": "5.0",
+    // "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true,
     "target": "es2020",
     "typeRoots": [
