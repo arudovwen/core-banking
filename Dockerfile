@@ -29,7 +29,7 @@ RUN npm config set registry $NPM_REGISTRY_URL --location=global
 
 RUN npm install --location=global @angular/cli@14.2.12
 
-RUN npm install
+RUN npm install -f
 
 RUN ng build --output-path=/dist $BUILD_ENVIRONMENT_OPTIONS
 

@@ -32,7 +32,7 @@ jobs:
         run : npm install -g --silent @angular/cli@14.2.12
 
       - name: Npm install
-        run: npm install
+        run: npm install -f
 
       - name: Run tslint
         run : npx tslint src/**/*.ts
