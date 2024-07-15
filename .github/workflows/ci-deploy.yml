@@ -2,7 +2,7 @@ name: Run Azure Login with OIDC
 on:
   push:
     branches:
-      - ci-deploy
+      - development
 
 permissions:
   id-token: write
