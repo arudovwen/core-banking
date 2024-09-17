@@ -33,7 +33,7 @@
         <mat-card-subtitle>
           <p>
             {{entityType}} Name: {{savingsAccountData.clientName || savingsAccountData.groupName}}
-            <span class="m-l-10" *ngIf="savingsAccountData.clientAccountNo">({{savingsAccountData.clientAccountNo}})</span><br />
+            <span class="m-l-10 text-black" *ngIf="savingsAccountData.clientAccountNo">({{savingsAccountData.clientAccountNo}})</span><br />
             <span *ngIf="!savingsAccountData.status.rejected && !savingsAccountData.status.submittedAndPendingApproval">
               Current Balances  :
               {{savingsAccountData.currency.displaySymbol}}<span class="m-l-10">{{savingsAccountData.summary.accountBalance |
