@@ -24,7 +24,7 @@
     <h3>Client Members</h3>
 
     <table mat-table [dataSource]="groupClientMembers"
-      class="mat-elevation-z1 m-b-30">
+      class="mat-elevation-z1 shadow-none rounded-lg p-4 m-b-30">
 
       <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -76,7 +76,7 @@
 
     <!-- Open Loan Accounts Table -->
     <table *ngIf="!showClosedLoanAccounts" mat-table [dataSource]="loanAccounts|accountsFilter:'loan'"
-      class="mat-elevation-z1 m-b-30">
+      class="mat-elevation-z1 shadow-none rounded-lg p-4 m-b-30">
 
       <ng-container matColumnDef="Account No">
         <th mat-header-cell *matHeaderCellDef> Account No. </th>
@@ -142,7 +142,7 @@
 
     <!-- Closed Loan Accounts Table-->
     <table *ngIf="showClosedLoanAccounts" mat-table [dataSource]="loanAccounts|accountsFilter:'loan':'closed'"
-      class="mat-elevation-z1 m-b-30">
+      class="mat-elevation-z1 shadow-none rounded-lg p-4 m-b-30">
 
       <ng-container matColumnDef="Account No">
         <th mat-header-cell *matHeaderCellDef> Account No. </th>
@@ -203,7 +203,7 @@
 
     <!-- GSIM Accounts Table -->
     <table mat-table [dataSource]="gsimAccounts"
-      class="mat-elevation-z1 m-b-30">
+      class="mat-elevation-z1 shadow-none rounded-lg p-4 m-b-30">
 
       <ng-container matColumnDef="GSIM Id">
         <th mat-header-cell *matHeaderCellDef> GSIM Id </th>
@@ -248,7 +248,7 @@
 
     <!-- GLIM Loans Accounts Table -->
     <table mat-table [dataSource]="glimAccounts"
-      class="mat-elevation-z1 m-b-30">
+      class="mat-elevation-z1 shadow-none rounded-lg p-4 m-b-30">
 
       <ng-container matColumnDef="GLIM Id">
         <th mat-header-cell *matHeaderCellDef> GLIM Id </th>
@@ -297,7 +297,7 @@
 
     <!-- Open Savings Accounts Table -->
     <table *ngIf="!showClosedSavingAccounts" mat-table [dataSource]="savingAccounts|accountsFilter:'saving'"
-      class="mat-elevation-z1 m-b-30">
+      class="mat-elevation-z1 shadow-none rounded-lg p-4 m-b-30">
 
       <ng-container matColumnDef="Account No">
         <th mat-header-cell *matHeaderCellDef> Account No. </th>
@@ -355,7 +355,7 @@
 
     <!-- Closed Saving Accounts Table -->
     <table *ngIf="showClosedSavingAccounts" mat-table [dataSource]="savingAccounts|accountsFilter:'saving':'closed'"
-      class="mat-elevation-z1 m-b-30">
+      class="mat-elevation-z1 shadow-none rounded-lg p-4 m-b-30">
 
       <ng-container matColumnDef="Account No">
         <th mat-header-cell *matHeaderCellDef> Account No. </th>

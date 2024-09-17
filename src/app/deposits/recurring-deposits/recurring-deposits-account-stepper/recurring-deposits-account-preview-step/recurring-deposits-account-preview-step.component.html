@@ -158,7 +158,7 @@
         fxFlex="60%">{{ recurringDepositsAccountProductTemplate?.accountChart.isPrimaryGroupingByAmount ? 'Yes' : 'No' }}</span>
     </div>
 
-    <table class="mat-elevation-z1 irc-table" mat-table [dataSource]="interestRateChartData" multiTemplateDataRows>
+    <table class="mat-elevation-z1 shadow-none rounded-lg p-4 irc-table" mat-table [dataSource]="interestRateChartData" multiTemplateDataRows>
 
       <ng-container matColumnDef="period">
         <th mat-header-cell *matHeaderCellDef> Period </th>
