@@ -105,7 +105,7 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline" fxFlex="98%">
-            <mat-label>{{ "Destination" | translate }}</mat-label>
+            <mat-label>{{ "Description" | translate }}</mat-label>
             <textarea matInput formControlName="transferDescription" cdkTextareaAutosize cdkAutosizeMinRows="2"></textarea>
             <mat-error *ngIf="makeAccountTransferForm.controls.transferDescription.hasError('required')">
               {{ "Transfer Description" | translate }} {{ "is" | translate }} <strong>{{ "required" | translate }}</strong>
