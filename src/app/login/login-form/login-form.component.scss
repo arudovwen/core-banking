@@ -1,6 +1,11 @@
 #login-form {
+  @media(max-width:465px) {
+    width: 100%;
+    padding: 16px;
+  }
   .inputBorder {
     border: 1px solod gray;
+  
   }
   .login-input {
     width: 462px;
@@ -9,11 +14,17 @@
     // .field {
     //   border-radius: 19px !important;
     // }
+    @media(max-width:465px) {
+      width: 100%;
+    }
   }
   .login-text {
     width: 462px;
     margin-bottom: 27px;
     margin-top: 142px;
+    @media(max-width:465px) {
+      width: 100%;
+    }
   }
 
   .login-button {
@@ -21,6 +32,9 @@
     margin-top: 1rem;
     height: 48px;
     border-radius: 32px;
+    @media(max-width:465px) {
+      width: 100%;
+    }
   }
 
   mat-spinner {
