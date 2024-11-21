@@ -233,6 +233,9 @@
 .transparent {
   background-color: transparent !important;
 }
+.mat-nav-list.is-active .mat-list-item:hover{
+  background: #1849A9;
+}
 // .mat-menu-item {
 //   padding: 0 0 0 55px;
 // }
@@ -256,3 +259,7 @@
   margin-right: 0 !important;
 }
 
+
+.mat-nav-list .mat-list-item.is-active:hover, .mat-nav-list .mat-list-item.is-active:active{
+  background: #1849A9;
+}

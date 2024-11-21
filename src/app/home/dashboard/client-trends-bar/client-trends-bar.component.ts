@@ -224,15 +224,15 @@ export class ClientTrendsBarComponent implements OnInit {
           datasets: [
             {
               label: 'New Clients',
-              backgroundColor: '#16320180',
+              backgroundColor: '#1849A980',
               data: clientCounts,
-              borderColor:"#163201",
+              borderColor:"#1849A9",
               fill: 'origin'
             },
             {
               label: 'Loans Disbursed',
-              backgroundColor: '#f7ec7680',
-              borderColor:"#f7ec76",
+              backgroundColor: '#0D111D80',
+              borderColor:"#0D111D",
               data: loanCounts,
               fill: 'smooth'
             }

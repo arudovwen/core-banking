@@ -38,22 +38,22 @@ export class ToolbarComponent implements OnInit {
     // },
     {
       url: `http://3.16.1.81:444`,
-      logo: "assets/images/bancro.png",
+      logo: "assets/images/oxide-logo.png",
      title: "Pay"
     },
     {
       url: `http://3.16.1.81:304`,
-      logo: "assets/images/bancro.png",
+      logo: "assets/images/oxide-logo.png",
       title: "Banking",
     },
     {
       url: `http://3.16.1.81:448`,
-      logo: "assets/images/bancro.png",
+      logo: "assets/images/oxide-logo.png",
       title: "Id",
     },
     {
       url: `http://3.16.1.81:305`,
-      logo: "assets/images/bancro.png",
+      logo: "assets/images/oxide-logo.png",
       title: "Savings",
     },
   ];
