@@ -8,8 +8,8 @@
   width: 70px;
   height: 70px;
   background:
-    radial-gradient(farthest-side,#183329 90%,#0000) center/16px 16px,
-    radial-gradient(farthest-side,#F2F16E   90%,#0000) bottom/12px 12px;
+    radial-gradient(farthest-side,#1849A9 90%,#0D111D) center/16px 16px,
+    radial-gradient(farthest-side,#0766FF   90%,#0D111D) bottom/12px 12px;
   background-repeat: no-repeat;
   animation: s7 1s infinite linear;
   position: relative;
@@ -21,7 +21,7 @@
   height:8px;
   inset:auto 0 16px;
   margin: auto;
-  background:#183329;
+  background:1849A9;
   border-radius: 50%;
   transform-origin: 50% calc(100% + 10px);
   animation:inherit;

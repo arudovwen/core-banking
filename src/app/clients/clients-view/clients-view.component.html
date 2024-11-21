@@ -58,14 +58,14 @@
             ></i>
             <span class="text-[#6A6C6A] font-medium">Client Name :</span
             ><mifosx-entity-name
-              class="text-[#0e0f0c] font-semibold"
+              class="text-[#0D111D] font-semibold"
               entityName="{{ clientViewData.displayName }}"
             ></mifosx-entity-name>
           </h3>
           <div fxFlex="5%">
             <button mat-icon-button [matMenuTriggerFor]="clientMenu" aria-label="Client actions" yPosition="below">
               <mat-icon matListIcon class="actions-menu">
-                <fa-icon icon="bars" size="sm" style="color: #0e0f0c"></fa-icon>
+                <fa-icon icon="bars" size="sm" style="color: #0D111D"></fa-icon>
               </mat-icon>
             </button>
           </div>
@@ -76,36 +76,36 @@
             <span class="flex gap-x-2 items-center">
               <span class="text-[#6A6C6A] font-medium">Office :</span
               ><mifosx-entity-name
-                class="text-[#0e0f0c] font-semibold"
+                class="text-[#0D111D] font-semibold"
                 entityName="{{ clientViewData.officeName }}"
               ></mifosx-entity-name>
             </span>
             <span class="flex gap-x-2 items-center">
               <span class="text-[#6A6C6A] font-medium">Client :</span>
               <mifosx-account-number
-                class="text-[#0e0f0c] font-semibold"
+                class="text-[#0D111D] font-semibold"
                 accountNo="{{ clientViewData.accountNo }}"
               ></mifosx-account-number>
             </span>
             <span class="flex gap-x-2 items-center">
               <span class="text-[#6A6C6A] font-medium">External Id:</span
               ><mifosx-external-identifier
-                class="text-[#0e0f0c] !font-semibold"
+                class="text-[#0D111D] !font-semibold"
                 externalId="{{ clientViewData.externalId }}"
                 completed="true"
               ></mifosx-external-identifier>
             </span>
             <span class="flex gap-x-2 items-center" *ngIf="clientViewData.staffName"
               ><span class="text-[#6A6C6A] font-medium">Staff :</span
-              ><span class="text-[#0e0f0c] font-semibold"> {{ clientViewData.staffName || "Unassigned" }}</span></span
+              ><span class="text-[#0D111D] font-semibold"> {{ clientViewData.staffName || "Unassigned" }}</span></span
             >
             <span class="flex gap-x-2 items-center" *ngIf="clientViewData.activationDate"
               ><span class="text-[#6A6C6A] font-medium">Activation Date :</span>
-              <span class="text-[#0e0f0c] font-semibold"> {{ clientViewData.activationDate | dateFormat }}</span></span
+              <span class="text-[#0D111D] font-semibold"> {{ clientViewData.activationDate | dateFormat }}</span></span
             >
             <span class="flex gap-x-2 items-center" *ngIf="clientViewData.groups.length > 0">
               <span class="text-[#6A6C6A] font-medium"> Member Of :</span>
-              <span *ngFor="let group of clientViewData.groups" class="text-[#0e0f0c] font-semibold">
+              <span *ngFor="let group of clientViewData.groups" class="text-[#0D111D] font-semibold">
                 <span>{{ group.name }}</span
                 >&nbsp;
               </span>

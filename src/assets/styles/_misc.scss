@@ -54,9 +54,9 @@ div {
 ::ng-deep .mat-tooltip {
   font-size: 13px;
   white-space: pre-wrap;
-  color: #163300 !important;
-  background-color: rgba(#9fe870, 0.7);
-  border: 1px solid darken(#9fe870, 20%);
+  color: #fff !important;
+  background-color: rgba(#1849A9, 0.7);
+  border: 1px solid darken(#1849A9, 20%);
   max-width: 400px !important;
   white-space: pre-line !important;
 }
@@ -64,14 +64,14 @@ div {
   padding: 0 !important;
 }
 .mat-header-cell {
-  color: #0e0f0c;
+  color: #0D111D;
   font-size: 12px;
   font-weight: 500;
 }
 .mat-table,
 .mat-checkbox {
   font-family: "Inter", sans-serif;
-  color: #0e0f0c;
+  color: #0D111D;
 }
 
 .mat-menu-panel {
@@ -176,19 +176,19 @@ table {
     cursor: pointer;
   }
   tr:nth-child(odd).td{
-    color:#0E0F0C;
+    color:#0D111D;
   }
 }
 th.mat-header-cell {
   background-color: #F9FAFB;
   border-bottom-width: 1px;
   border-color: #EAECF0;
-  color:#0E0F0C;
+  color:#0D111D;
   font-size: 12px;
   font-weight:500;
 }
 .mat-header-cell {
-  color:#0E0F0C;
+  color:#0D111D;
   font-size: 12px;
   font-weight:500;
 }
